@@ -1,0 +1,11927 @@
+VAR 
+ID "a"
+EQUAL 
+LSB [ 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 2
+COMMA , 
+INTEGER_LITERAL 2
+RSB ] 
+SEMI ; 
+VAR 
+ID "b"
+EQUAL 
+LSB [ 
+ID "a"
+COMMA , 
+ID "a"
+RSB ] 
+SEMI ; 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+EQUAL 
+INTEGER_LITERAL 10
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[0][0] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[0][1] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[1][0] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[1][3] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 3
+RSB ] 
+RP ) 
+SEMI ; 
+********* file: tests/8q.spl
+VAR 
+ID "i"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "up"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "down"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "rows"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "x"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 8
+COMMA , 
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+DEF 
+ID "printv"
+LP ( 
+RP ) 
+LB { 
+PRINT 
+LP ( 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 2
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 3
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 4
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 5
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 6
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 7
+RSB ] 
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "queens"
+LP ( 
+ID "c"
+COLON : 
+INT 
+RP ) 
+LB { 
+VAR 
+ID "r"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "r"
+LT < 
+INTEGER_LITERAL 8
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+AND && 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+AND && 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+RP ) 
+LB { 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "x"
+LSB [ 
+ID "c"
+RSB ] 
+EQUAL 
+ID "r"
+SEMI ; 
+IF 
+LP ( 
+ID "c"
+EQ == 
+INTEGER_LITERAL 7
+RP ) 
+ID "printv"
+LP ( 
+RP ) 
+ELSE 
+ID "queens"
+LP ( 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "r"
+EQUAL 
+ID "r"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "queens"
+LP ( 
+INTEGER_LITERAL 0
+RP ) 
+SEMI ; 
+********* file: tests/factorial.spl
+DIV / 
+*** Lexical Error: Illegal character (line: 1, position: 2)
+Archanas-MacBook-Air:spl archana$ scala spl-solution.jar 1 tests/*.spl
+********* file: tests/2d_array.spl
+*** Using the PcatLex solution.
+VAR 
+ID "a"
+EQUAL 
+LSB [ 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 2
+COMMA , 
+INTEGER_LITERAL 2
+RSB ] 
+SEMI ; 
+VAR 
+ID "b"
+EQUAL 
+LSB [ 
+ID "a"
+COMMA , 
+ID "a"
+RSB ] 
+SEMI ; 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+EQUAL 
+INTEGER_LITERAL 10
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[0][0] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[0][1] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[1][0] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[1][3] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 3
+RSB ] 
+RP ) 
+SEMI ; 
+********* file: tests/8q.spl
+VAR 
+ID "i"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "up"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "down"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "rows"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "x"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 8
+COMMA , 
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+DEF 
+ID "printv"
+LP ( 
+RP ) 
+LB { 
+PRINT 
+LP ( 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 2
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 3
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 4
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 5
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 6
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 7
+RSB ] 
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "queens"
+LP ( 
+ID "c"
+COLON : 
+INT 
+RP ) 
+LB { 
+VAR 
+ID "r"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "r"
+LT < 
+INTEGER_LITERAL 8
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+AND && 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+AND && 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+RP ) 
+LB { 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "x"
+LSB [ 
+ID "c"
+RSB ] 
+EQUAL 
+ID "r"
+SEMI ; 
+IF 
+LP ( 
+ID "c"
+EQ == 
+INTEGER_LITERAL 7
+RP ) 
+ID "printv"
+LP ( 
+RP ) 
+ELSE 
+ID "queens"
+LP ( 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "r"
+EQUAL 
+ID "r"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "queens"
+LP ( 
+INTEGER_LITERAL 0
+RP ) 
+SEMI ; 
+********* file: tests/factorial.spl
+VAR 
+ID "n"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+DEF 
+ID "fact"
+LP ( 
+ID "i"
+COLON : 
+INT 
+RP ) 
+COLON : 
+INT 
+LB { 
+IF 
+LP ( 
+ID "i"
+LEQ <= 
+INTEGER_LITERAL 0
+RP ) 
+RETURN 
+INTEGER_LITERAL 1
+ELSE 
+RETURN 
+ID "i"
+TIMES * 
+ID "fact"
+LP ( 
+ID "i"
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Enter a number:"
+RP ) 
+SEMI ; 
+READ 
+LP ( 
+ID "n"
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+ID "fact"
+LP ( 
+ID "n"
+RP ) 
+RP ) 
+SEMI ; 
+********* file: tests/fib.spl
+VAR 
+ID "N"
+EQUAL 
+INTEGER_LITERAL 40
+SEMI ; 
+VAR 
+ID "I"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "fibbs"
+EQUAL 
+ARRAY 
+LP ( 
+ID "N"
+COMMA , 
+INTEGER_LITERAL 0
+RP ) 
+SEMI ; 
+VAR 
+ID "j"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "n"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+DEF 
+ID "init"
+LP ( 
+ID "a"
+COLON : 
+ARRAY 
+LSB [ 
+INT 
+RSB ] 
+RP ) 
+LB { 
+VAR 
+ID "i"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 2
+SEMI ; 
+ID "a"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+EQUAL 
+INTEGER_LITERAL 1
+SEMI ; 
+ID "a"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+EQUAL 
+INTEGER_LITERAL 1
+SEMI ; 
+WHILE 
+LP ( 
+ID "i"
+LT < 
+ID "N"
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+LB { 
+ID "a"
+LSB [ 
+ID "i"
+RSB ] 
+EQUAL 
+ID "I"
+SEMI ; 
+ID "i"
+EQUAL 
+ID "i"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "fibb"
+LP ( 
+ID "i"
+COLON : 
+INT 
+RP ) 
+COLON : 
+INT 
+LB { 
+IF 
+LP ( 
+ID "fibbs"
+LSB [ 
+ID "i"
+RSB ] 
+EQ == 
+ID "I"
+RP ) 
+ID "fibbs"
+LSB [ 
+ID "i"
+RSB ] 
+EQUAL 
+ID "fibb"
+LP ( 
+ID "i"
+MINUS - 
+INTEGER_LITERAL 2
+RP ) 
+PLUS + 
+ID "fibb"
+LP ( 
+ID "i"
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+RETURN 
+ID "fibbs"
+LSB [ 
+ID "i"
+RSB ] 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "init"
+LP ( 
+ID "fibbs"
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Enter indices of eight fibbonacci numbers:"
+RP ) 
+SEMI ; 
+WHILE 
+LP ( 
+ID "j"
+LT < 
+INTEGER_LITERAL 8
+RP ) 
+LB { 
+READ 
+LP ( 
+ID "n"
+RP ) 
+SEMI ; 
+IF 
+LP ( 
+ID "n"
+GEQ >= 
+ID "N"
+RP ) 
+PRINT 
+LP ( 
+STRING_LITERAL "Maximum index is "
+COMMA , 
+ID "N"
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+ELSE 
+PRINT 
+LP ( 
+ID "n"
+COMMA , 
+STRING_LITERAL " "
+COMMA , 
+ID "fibb"
+LP ( 
+ID "n"
+RP ) 
+RP ) 
+SEMI ; 
+ID "j"
+EQUAL 
+ID "j"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+********* file: tests/hanoi.spl
+DEF 
+ID "hanoi"
+LP ( 
+ID "n"
+COLON : 
+INT 
+COMMA , 
+ID "src"
+COLON : 
+INT 
+COMMA , 
+ID "dst"
+COLON : 
+INT 
+COMMA , 
+ID "tmp"
+COLON : 
+INT 
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "n"
+GT > 
+INTEGER_LITERAL 0
+RP ) 
+LB { 
+ID "hanoi"
+LP ( 
+ID "n"
+MINUS - 
+INTEGER_LITERAL 1
+COMMA , 
+ID "src"
+COMMA , 
+ID "tmp"
+COMMA , 
+ID "dst"
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+ID "n"
+COMMA , 
+STRING_LITERAL " "
+COMMA , 
+ID "src"
+COMMA , 
+STRING_LITERAL " "
+COMMA , 
+ID "dst"
+RP ) 
+SEMI ; 
+ID "hanoi"
+LP ( 
+ID "n"
+MINUS - 
+INTEGER_LITERAL 1
+COMMA , 
+ID "tmp"
+COMMA , 
+ID "dst"
+COMMA , 
+ID "src"
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "hanoi"
+LP ( 
+INTEGER_LITERAL 5
+COMMA , 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 2
+COMMA , 
+INTEGER_LITERAL 3
+RP ) 
+SEMI ; 
+********* file: tests/hello.spl
+PRINT 
+LP ( 
+STRING_LITERAL "Hello World!"
+RP ) 
+SEMI ; 
+********* file: tests/prime.spl
+VAR 
+ID "size"
+EQUAL 
+INTEGER_LITERAL 8190
+SEMI ; 
+VAR 
+ID "IsPrime"
+EQUAL 
+ARRAY 
+LP ( 
+ID "size"
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "i"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "j"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "k"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "prime"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "count"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+DEF 
+ID "mark"
+LP ( 
+ID "x"
+COLON : 
+INT 
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "x"
+LT < 
+ID "size"
+RP ) 
+LB { 
+ID "IsPrime"
+LSB [ 
+ID "x"
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "x"
+EQUAL 
+ID "x"
+PLUS + 
+ID "prime"
+SEMI ; 
+ID "mark"
+LP ( 
+ID "x"
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+WHILE 
+LP ( 
+ID "j"
+LT < 
+ID "size"
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "IsPrime"
+LSB [ 
+ID "j"
+RSB ] 
+EQ == 
+TRUE 
+RP ) 
+LB { 
+ID "prime"
+EQUAL 
+ID "j"
+PLUS + 
+ID "j"
+PLUS + 
+INTEGER_LITERAL 3
+SEMI ; 
+ID "k"
+EQUAL 
+ID "j"
+PLUS + 
+ID "prime"
+SEMI ; 
+ID "mark"
+LP ( 
+ID "k"
+RP ) 
+SEMI ; 
+ID "count"
+EQUAL 
+ID "count"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+ID "j"
+EQUAL 
+ID "j"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "The number of prime numbers less than "
+COMMA , 
+ID "size"
+COMMA , 
+STRING_LITERAL " is "
+COMMA , 
+ID "count"
+RP ) 
+SEMI ; 
+********* file: tests/sort.spl
+VAR 
+ID "N"
+EQUAL 
+INTEGER_LITERAL 10
+SEMI ; 
+VAR 
+ID "a"
+EQUAL 
+ARRAY 
+LP ( 
+ID "N"
+COMMA , 
+INTEGER_LITERAL 0
+RP ) 
+SEMI ; 
+DEF 
+ID "quicksort"
+LP ( 
+ID "a"
+COLON : 
+ARRAY 
+LSB [ 
+INT 
+RSB ] 
+COMMA , 
+ID "m"
+COLON : 
+INT 
+COMMA , 
+ID "n"
+COLON : 
+INT 
+RP ) 
+LB { 
+VAR 
+ID "i"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+DEF 
+ID "exchange"
+LP ( 
+ID "p"
+COLON : 
+INT 
+COMMA , 
+ID "q"
+COLON : 
+INT 
+RP ) 
+LB { 
+VAR 
+ID "x"
+EQUAL 
+ID "a"
+LSB [ 
+ID "p"
+RSB ] 
+SEMI ; 
+ID "a"
+LSB [ 
+ID "p"
+RSB ] 
+EQUAL 
+ID "a"
+LSB [ 
+ID "q"
+RSB ] 
+SEMI ; 
+ID "a"
+LSB [ 
+ID "q"
+RSB ] 
+EQUAL 
+ID "x"
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "partition"
+LP ( 
+ID "y"
+COLON : 
+INT 
+COMMA , 
+ID "z"
+COLON : 
+INT 
+RP ) 
+COLON : 
+INT 
+LB { 
+VAR 
+ID "i"
+EQUAL 
+ID "y"
+SEMI ; 
+VAR 
+ID "j"
+EQUAL 
+ID "z"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+DEF 
+ID "meet"
+LP ( 
+RP ) 
+LB { 
+DEF 
+ID "up"
+LP ( 
+RP ) 
+LB { 
+ID "i"
+EQUAL 
+ID "i"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+IF 
+LP ( 
+ID "i"
+LT < 
+ID "N"
+RP ) 
+IF 
+LP ( 
+ID "a"
+LSB [ 
+ID "i"
+RSB ] 
+LT < 
+ID "a"
+LSB [ 
+ID "y"
+RSB ] 
+RP ) 
+ID "up"
+LP ( 
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "down"
+LP ( 
+RP ) 
+LB { 
+ID "j"
+EQUAL 
+ID "j"
+MINUS - 
+INTEGER_LITERAL 1
+SEMI ; 
+IF 
+LP ( 
+ID "a"
+LSB [ 
+ID "j"
+RSB ] 
+GT > 
+ID "a"
+LSB [ 
+ID "y"
+RSB ] 
+RP ) 
+ID "down"
+LP ( 
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+IF 
+LP ( 
+ID "i"
+LT < 
+ID "j"
+RP ) 
+LB { 
+ID "up"
+LP ( 
+RP ) 
+SEMI ; 
+ID "down"
+LP ( 
+RP ) 
+SEMI ; 
+IF 
+LP ( 
+ID "i"
+LT < 
+ID "j"
+RP ) 
+ID "exchange"
+LP ( 
+ID "i"
+COMMA , 
+ID "j"
+RP ) 
+SEMI ; 
+ID "meet"
+LP ( 
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "meet"
+LP ( 
+RP ) 
+SEMI ; 
+ID "exchange"
+LP ( 
+ID "y"
+COMMA , 
+ID "j"
+RP ) 
+SEMI ; 
+RETURN 
+ID "j"
+SEMI ; 
+RB } 
+SEMI ; 
+IF 
+LP ( 
+ID "n"
+GT > 
+ID "m"
+RP ) 
+LB { 
+ID "i"
+EQUAL 
+ID "partition"
+LP ( 
+ID "m"
+COMMA , 
+ID "n"
+RP ) 
+SEMI ; 
+ID "quicksort"
+LP ( 
+ID "a"
+COMMA , 
+ID "m"
+COMMA , 
+ID "i"
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+ID "quicksort"
+LP ( 
+ID "a"
+COMMA , 
+ID "i"
+PLUS + 
+INTEGER_LITERAL 1
+COMMA , 
+ID "n"
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "readarray"
+LP ( 
+RP ) 
+LB { 
+VAR 
+ID "i"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "i"
+LT < 
+ID "N"
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+LB { 
+READ 
+LP ( 
+ID "a"
+LSB [ 
+ID "i"
+RSB ] 
+RP ) 
+SEMI ; 
+ID "i"
+EQUAL 
+ID "i"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+ID "a"
+LSB [ 
+ID "i"
+RSB ] 
+EQUAL 
+MINUS - 
+INTEGER_LITERAL 1000
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "writearray"
+LP ( 
+RP ) 
+LB { 
+VAR 
+ID "i"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "i"
+LT < 
+ID "N"
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+LB { 
+PRINT 
+LP ( 
+ID "a"
+LSB [ 
+ID "i"
+RSB ] 
+RP ) 
+SEMI ; 
+ID "i"
+EQUAL 
+ID "i"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Give 9 integers:"
+RP ) 
+SEMI ; 
+ID "readarray"
+LP ( 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "The sorted numbers are:"
+RP ) 
+SEMI ; 
+ID "quicksort"
+LP ( 
+ID "a"
+COMMA , 
+INTEGER_LITERAL 0
+COMMA , 
+ID "N"
+MINUS - 
+INTEGER_LITERAL 2
+RP ) 
+SEMI ; 
+ID "writearray"
+LP ( 
+RP ) 
+SEMI ; 
+********* file: tests/square.spl
+VAR 
+ID "SIZE"
+EQUAL 
+INTEGER_LITERAL 5
+SEMI ; 
+VAR 
+ID "I"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "J"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "K"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "CELL"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "B"
+EQUAL 
+ARRAY 
+LP ( 
+ID "SIZE"
+COMMA , 
+INTEGER_LITERAL 0
+RP ) 
+SEMI ; 
+VAR 
+ID "C"
+EQUAL 
+ARRAY 
+LP ( 
+ID "SIZE"
+COMMA , 
+ARRAY 
+LP ( 
+ID "SIZE"
+COMMA , 
+INTEGER_LITERAL 0
+RP ) 
+RP ) 
+SEMI ; 
+VAR 
+ID "D"
+EQUAL 
+ARRAY 
+LP ( 
+ID "SIZE"
+COMMA , 
+ARRAY 
+LP ( 
+ID "SIZE"
+COMMA , 
+INTEGER_LITERAL 0
+RP ) 
+RP ) 
+SEMI ; 
+ID "I"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "I"
+LT < 
+ID "SIZE"
+RP ) 
+LB { 
+ID "C"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+ID "I"
+RSB ] 
+EQUAL 
+ID "I"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+ID "I"
+EQUAL 
+ID "I"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+ID "I"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "I"
+LT < 
+ID "SIZE"
+RP ) 
+LB { 
+ID "J"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "J"
+LT < 
+ID "SIZE"
+RP ) 
+LB { 
+ID "CELL"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+ID "K"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "K"
+LT < 
+ID "SIZE"
+RP ) 
+LB { 
+ID "CELL"
+EQUAL 
+ID "CELL"
+PLUS + 
+ID "C"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+ID "K"
+RSB ] 
+TIMES * 
+ID "C"
+LSB [ 
+ID "K"
+RSB ] 
+LSB [ 
+ID "J"
+RSB ] 
+SEMI ; 
+ID "K"
+EQUAL 
+ID "K"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+ID "D"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+ID "J"
+RSB ] 
+EQUAL 
+ID "CELL"
+SEMI ; 
+ID "J"
+EQUAL 
+ID "J"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+ID "I"
+EQUAL 
+ID "I"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Input matrix"
+RP ) 
+SEMI ; 
+ID "I"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "I"
+LT < 
+ID "SIZE"
+RP ) 
+LB { 
+PRINT 
+LP ( 
+ID "C"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "C"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "C"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 2
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "C"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 3
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "C"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 4
+RSB ] 
+RP ) 
+SEMI ; 
+ID "I"
+EQUAL 
+ID "I"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+PRINT 
+LP ( 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Input matrix squared"
+RP ) 
+SEMI ; 
+ID "I"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "I"
+LT < 
+ID "SIZE"
+RP ) 
+LB { 
+PRINT 
+LP ( 
+ID "D"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "D"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "D"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 2
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "D"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 3
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "D"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 4
+RSB ] 
+RP ) 
+SEMI ; 
+ID "I"
+EQUAL 
+ID "I"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+********* file: tests/test1.spl
+VAR 
+ID "x"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 6
+SEMI ; 
+VAR 
+ID "y"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 3
+SEMI ; 
+DEF 
+ID "f"
+LP ( 
+ID "a"
+COLON : 
+INT 
+RP ) 
+LB { 
+VAR 
+ID "i"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 2
+SEMI ; 
+PRINT 
+LP ( 
+ID "a"
+RP ) 
+SEMI ; 
+FOR 
+LP ( 
+ID "k"
+EQUAL 
+INTEGER_LITERAL 1
+TO 
+ID "a"
+RP ) 
+PRINT 
+LP ( 
+ID "k"
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "f"
+LP ( 
+ID "x"
+PLUS + 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+ID "x"
+PLUS + 
+ID "y"
+TIMES * 
+INTEGER_LITERAL 2
+RP ) 
+SEMI ; 
+********* file: tests/test2.spl
+VAR 
+ID "x"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Input: "
+RP ) 
+SEMI ; 
+READ 
+LP ( 
+ID "x"
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+INTEGER_LITERAL 1
+PLUS + 
+ID "x"
+TIMES * 
+INTEGER_LITERAL 2
+RP ) 
+SEMI ; 
+********* file: tests/test3.spl
+TYPE 
+ID "IARRAY"
+EQUAL 
+ARRAY 
+LSB [ 
+INT 
+RSB ] 
+SEMI ; 
+VAR 
+ID "a"
+EQUAL 
+LSB [ 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 2
+COMMA , 
+INTEGER_LITERAL 5
+COMMA , 
+INTEGER_LITERAL 6
+COMMA , 
+INTEGER_LITERAL 6
+COMMA , 
+INTEGER_LITERAL 6
+COMMA , 
+INTEGER_LITERAL 6
+COMMA , 
+INTEGER_LITERAL 100
+RSB ] 
+SEMI ; 
+VAR 
+ID "k"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+FOR 
+LP ( 
+ID "i"
+EQUAL 
+INTEGER_LITERAL 0
+TO 
+INTEGER_LITERAL 8
+RP ) 
+PRINT 
+LP ( 
+STRING_LITERAL "a["
+COMMA , 
+ID "i"
+COMMA , 
+STRING_LITERAL "] is "
+COMMA , 
+ID "a"
+LSB [ 
+ID "i"
+RSB ] 
+RP ) 
+SEMI ; 
+WHILE 
+LP ( 
+ID "k"
+LT < 
+INTEGER_LITERAL 12
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "k"
+LT < 
+INTEGER_LITERAL 9
+AND && 
+ID "a"
+LSB [ 
+ID "k"
+RSB ] 
+LT < 
+INTEGER_LITERAL 10
+RP ) 
+PRINT 
+LP ( 
+ID "k"
+COMMA , 
+STRING_LITERAL " "
+COMMA , 
+ID "a"
+LSB [ 
+ID "k"
+RSB ] 
+RP ) 
+SEMI ; 
+ID "k"
+EQUAL 
+ID "k"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+********* file: tests/test4.spl
+TYPE 
+ID "rec"
+EQUAL 
+LB { 
+ID "a"
+COLON : 
+INT 
+COMMA , 
+ID "b"
+COLON : 
+INT 
+RB } 
+SEMI ; 
+VAR 
+ID "x"
+EQUAL 
+LB { 
+ID "a"
+EQUAL 
+INTEGER_LITERAL 23
+COMMA , 
+ID "b"
+EQUAL 
+INTEGER_LITERAL 67
+RB } 
+SEMI ; 
+ID "x"
+DOT . 
+ID "a"
+EQUAL 
+INTEGER_LITERAL 89
+SEMI ; 
+PRINT 
+LP ( 
+ID "x"
+DOT . 
+ID "a"
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "x"
+DOT . 
+ID "b"
+RP ) 
+SEMI ; 
+********* file: tests/tree.spl
+TYPE 
+ID "tree"
+EQUAL 
+LB { 
+ID "left"
+COLON : 
+ID "tree"
+COMMA , 
+ID "info"
+COLON : 
+INT 
+COMMA , 
+ID "right"
+COLON : 
+ID "tree"
+RB } 
+SEMI ; 
+VAR 
+ID "x"
+COLON : 
+ID "tree"
+EQUAL 
+LB { 
+ID "left"
+EQUAL 
+LP ( 
+RP ) 
+COMMA , 
+ID "info"
+EQUAL 
+INTEGER_LITERAL 3
+COMMA , 
+ID "right"
+EQUAL 
+LP ( 
+RP ) 
+RB } 
+SEMI ; 
+DEF 
+ID "preorder"
+LP ( 
+ID "x"
+COLON : 
+ID "tree"
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "x"
+NEQ <> 
+LP ( 
+RP ) 
+RP ) 
+LB { 
+PRINT 
+LP ( 
+ID "x"
+DOT . 
+ID "info"
+RP ) 
+SEMI ; 
+ID "preorder"
+LP ( 
+ID "x"
+DOT . 
+ID "left"
+RP ) 
+SEMI ; 
+ID "preorder"
+LP ( 
+ID "x"
+DOT . 
+ID "right"
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "sum"
+LP ( 
+ID "x"
+COLON : 
+ID "tree"
+RP ) 
+COLON : 
+INT 
+LB { 
+IF 
+LP ( 
+ID "x"
+EQ == 
+LP ( 
+RP ) 
+RP ) 
+RETURN 
+INTEGER_LITERAL 0
+ELSE 
+RETURN 
+ID "sum"
+LP ( 
+ID "x"
+DOT . 
+ID "left"
+RP ) 
+PLUS + 
+ID "x"
+DOT . 
+ID "info"
+PLUS + 
+ID "sum"
+LP ( 
+ID "x"
+DOT . 
+ID "right"
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "reflect"
+LP ( 
+ID "x"
+COLON : 
+ID "tree"
+RP ) 
+COLON : 
+ID "tree"
+LB { 
+IF 
+LP ( 
+ID "x"
+EQ == 
+LP ( 
+RP ) 
+RP ) 
+RETURN 
+LP ( 
+RP ) 
+ELSE 
+RETURN 
+LB { 
+ID "left"
+EQUAL 
+ID "reflect"
+LP ( 
+ID "x"
+DOT . 
+ID "right"
+RP ) 
+COMMA , 
+ID "info"
+EQUAL 
+ID "x"
+DOT . 
+ID "info"
+COMMA , 
+ID "right"
+EQUAL 
+ID "reflect"
+LP ( 
+ID "x"
+DOT . 
+ID "left"
+RP ) 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "x"
+DOT . 
+ID "left"
+EQUAL 
+LB { 
+ID "left"
+EQUAL 
+LP ( 
+RP ) 
+COMMA , 
+ID "info"
+EQUAL 
+INTEGER_LITERAL 2
+COMMA , 
+ID "right"
+EQUAL 
+LP ( 
+RP ) 
+RB } 
+SEMI ; 
+ID "x"
+DOT . 
+ID "right"
+EQUAL 
+LB { 
+ID "left"
+EQUAL 
+LP ( 
+RP ) 
+COMMA , 
+ID "info"
+EQUAL 
+INTEGER_LITERAL 4
+COMMA , 
+ID "right"
+EQUAL 
+LP ( 
+RP ) 
+RB } 
+SEMI ; 
+ID "x"
+DOT . 
+ID "left"
+DOT . 
+ID "right"
+EQUAL 
+LB { 
+ID "left"
+EQUAL 
+ID "x"
+DOT . 
+ID "right"
+COMMA , 
+ID "info"
+EQUAL 
+INTEGER_LITERAL 5
+COMMA , 
+ID "right"
+EQUAL 
+LP ( 
+RP ) 
+RB } 
+SEMI ; 
+ID "preorder"
+LP ( 
+ID "x"
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "SUM: "
+COMMA , 
+ID "sum"
+LP ( 
+ID "x"
+RP ) 
+RP ) 
+SEMI ; 
+ID "preorder"
+LP ( 
+ID "reflect"
+LP ( 
+ID "x"
+RP ) 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "SUM: "
+COMMA , 
+ID "sum"
+LP ( 
+ID "x"
+RP ) 
+RP ) 
+SEMI ; 
+********* file: tests/tsort.spl
+VAR 
+ID "N"
+EQUAL 
+INTEGER_LITERAL 9
+SEMI ; 
+TYPE 
+ID "btree"
+EQUAL 
+LB { 
+ID "k"
+COLON : 
+INT 
+COMMA , 
+ID "l"
+COLON : 
+ID "btree"
+COMMA , 
+ID "r"
+COLON : 
+ID "btree"
+RB } 
+SEMI ; 
+DEF 
+ID "insert"
+LP ( 
+ID "t"
+COLON : 
+ID "btree"
+COMMA , 
+ID "i"
+COLON : 
+INT 
+RP ) 
+COLON : 
+ID "btree"
+LB { 
+IF 
+LP ( 
+ID "t"
+EQ == 
+LP ( 
+RP ) 
+RP ) 
+RETURN 
+LB { 
+ID "k"
+EQUAL 
+ID "i"
+COMMA , 
+ID "l"
+EQUAL 
+LP ( 
+RP ) 
+COMMA , 
+ID "r"
+EQUAL 
+LP ( 
+RP ) 
+RB } 
+ELSE 
+IF 
+LP ( 
+ID "t"
+DOT . 
+ID "k"
+LEQ <= 
+ID "i"
+RP ) 
+RETURN 
+LB { 
+ID "k"
+EQUAL 
+ID "t"
+DOT . 
+ID "k"
+COMMA , 
+ID "l"
+EQUAL 
+ID "t"
+DOT . 
+ID "l"
+COMMA , 
+ID "r"
+EQUAL 
+ID "insert"
+LP ( 
+ID "t"
+DOT . 
+ID "r"
+COMMA , 
+ID "i"
+RP ) 
+RB } 
+ELSE 
+RETURN 
+LB { 
+ID "k"
+EQUAL 
+ID "t"
+DOT . 
+ID "k"
+COMMA , 
+ID "l"
+EQUAL 
+ID "insert"
+LP ( 
+ID "t"
+DOT . 
+ID "l"
+COMMA , 
+ID "i"
+RP ) 
+COMMA , 
+ID "r"
+EQUAL 
+ID "t"
+DOT . 
+ID "r"
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "readtree"
+LP ( 
+RP ) 
+COLON : 
+ID "btree"
+LB { 
+VAR 
+ID "i"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "t"
+COLON : 
+ID "btree"
+EQUAL 
+LP ( 
+RP ) 
+SEMI ; 
+VAR 
+ID "a"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "i"
+LT < 
+ID "N"
+RP ) 
+LB { 
+READ 
+LP ( 
+ID "a"
+RP ) 
+SEMI ; 
+ID "t"
+EQUAL 
+ID "insert"
+LP ( 
+ID "t"
+COMMA , 
+ID "a"
+RP ) 
+SEMI ; 
+ID "i"
+EQUAL 
+ID "i"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+RETURN 
+ID "t"
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "writetree"
+LP ( 
+ID "t"
+COLON : 
+ID "btree"
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "t"
+EQ == 
+LP ( 
+RP ) 
+RP ) 
+RETURN 
+ELSE 
+LB { 
+ID "writetree"
+LP ( 
+ID "t"
+DOT . 
+ID "l"
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+ID "t"
+DOT . 
+ID "k"
+RP ) 
+SEMI ; 
+ID "writetree"
+LP ( 
+ID "t"
+DOT . 
+ID "r"
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+VAR 
+ID "t"
+COLON : 
+ID "btree"
+EQUAL 
+LP ( 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Give "
+COMMA , 
+ID "N"
+COMMA , 
+STRING_LITERAL " numbers:"
+RP ) 
+SEMI ; 
+ID "t"
+EQUAL 
+ID "readtree"
+LP ( 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Result:"
+RP ) 
+SEMI ; 
+ID "writetree"
+LP ( 
+ID "t"
+RP ) 
+SEMI ; 
+Archanas-MacBook-Air:spl archana$ mvn clean install
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Building A Compiler for SPL 0.1
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ spl ---
+[INFO] Deleting /Users/archana/Documents/UTA/Fall2018/spl/target
+[INFO] Deleting /Users/archana/Documents/UTA/Fall2018/spl (includes = [**/*~, lib/*, src/main/java/**, tests/*.s], excludes = [])
+[INFO] 
+[INFO] --- jflex-maven-plugin:1.6.1:generate (default) @ spl ---
+Reading "/Users/archana/Documents/UTA/Fall2018/spl/src/main/scala/edu/uta/spl/spl.lex"
+Constructing NFA : 208 states in NFA
+Converting NFA to DFA : 
+.........................................................................................................................
+123 states before minimization, 119 states in minimized DFA
+Writing code to "/Users/archana/Documents/UTA/Fall2018/spl/src/main/java/edu/uta/spl/SplLex.java"
+[INFO]   generated /Users/archana/Documents/UTA/Fall2018/spl/src/main/java/edu/uta/spl/SplLex.java
+[INFO] 
+[INFO] --- cup-maven-plugin:1.0.1:generate (default) @ spl ---
+Warning : Terminal "STRING_LITERAL" was declared but never used
+Warning : Terminal "UMINUS" was declared but never used
+Warning : Terminal "INT" was declared but never used
+Warning : Terminal "ARRAY" was declared but never used
+Warning : Terminal "FOR" was declared but never used
+Warning : Terminal "MINUS" was declared but never used
+Warning : Terminal "NOT" was declared but never used
+Warning : Terminal "AND" was declared but never used
+Warning : Terminal "LT" was declared but never used
+Warning : Terminal "TYPE" was declared but never used
+Warning : Terminal "OR" was declared but never used
+Warning : Terminal "COMMA" was declared but never used
+Warning : Terminal "DIV" was declared but never used
+Warning : Terminal "GEQ" was declared but never used
+Warning : Terminal "LSB" was declared but never used
+Warning : Terminal "LOOP" was declared but never used
+Warning : Terminal "PLUS" was declared but never used
+Warning : Terminal "EXIT" was declared but never used
+Warning : Terminal "IF" was declared but never used
+Warning : Terminal "DOT" was declared but never used
+Warning : Terminal "ID" was declared but never used
+Warning : Terminal "BOOLEAN" was declared but never used
+Warning : Terminal "LB" was declared but never used
+Warning : Terminal "RETURN" was declared but never used
+Warning : Terminal "EQUAL" was declared but never used
+Warning : Terminal "TRUE" was declared but never used
+Warning : Terminal "BY" was declared but never used
+Warning : Terminal "RB" was declared but never used
+Warning : Terminal "MOD" was declared but never used
+Warning : Terminal "NEQ" was declared but never used
+Warning : Terminal "EQ" was declared but never used
+Warning : Terminal "TIMES" was declared but never used
+Warning : Terminal "COLON" was declared but never used
+Warning : Terminal "SHARP" was declared but never used
+Warning : Terminal "ELSE" was declared but never used
+Warning : Terminal "RSB" was declared but never used
+Warning : Terminal "READ" was declared but never used
+Warning : Terminal "TO" was declared but never used
+Warning : Terminal "FLOAT" was declared but never used
+Warning : Terminal "LEQ" was declared but never used
+Warning : Terminal "STRING" was declared but never used
+Warning : Terminal "FLOAT_LITERAL" was declared but never used
+Warning : Terminal "FALSE" was declared but never used
+Warning : Terminal "GT" was declared but never used
+Warning : Terminal "VAR" was declared but never used
+Warning : Terminal "PRINT" was declared but never used
+[INFO]   generated /Users/archana/Documents/UTA/Fall2018/spl/src/main/java/edu/uta/spl/SplParser.java
+[INFO]   generated /Users/archana/Documents/UTA/Fall2018/spl/src/main/java/edu/uta/spl/sym.java
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ spl ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /Users/archana/Documents/UTA/Fall2018/spl/src/main/resources
+[INFO] 
+[INFO] --- scala-maven-plugin:3.2.1:add-source (scala-compile-first) @ spl ---
+[INFO] Add Source directory: /Users/archana/Documents/UTA/Fall2018/spl/src/main/scala
+[INFO] Add Test Source directory: /Users/archana/Documents/UTA/Fall2018/spl/src/test/scala
+[INFO] 
+[INFO] --- scala-maven-plugin:3.2.1:compile (scala-compile-first) @ spl ---
+[WARNING]  Expected all dependencies to require Scala version: 2.11.7
+[WARNING]  edu.uta.spl:spl:0.1 requires scala version: 2.11.7
+[WARNING]  org.scala-lang:scala-compiler:2.11.7 requires scala version: 2.11.7
+[WARNING]  org.scala-lang:scala-reflect:2.11.7 requires scala version: 2.11.7
+[WARNING]  org.scala-lang.modules:scala-xml_2.11:1.0.4 requires scala version: 2.11.4
+[WARNING] Multiple versions of scala libraries detected!
+[INFO] /Users/archana/Documents/UTA/Fall2018/spl/src/main/java:-1: info: compiling
+[INFO] /Users/archana/Documents/UTA/Fall2018/spl/src/main/scala:-1: info: compiling
+[INFO] Compiling 7 source files to /Users/archana/Documents/UTA/Fall2018/spl/target/classes at 1518063934053
+[WARNING] warning: there was one deprecation warning; re-run with -deprecation for details
+[WARNING] one warning found
+[INFO] prepare-compile in 0 s
+[INFO] compile in 13 s
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.0.2:compile (default-compile) @ spl ---
+[INFO] Compiling 3 source files to /Users/archana/Documents/UTA/Fall2018/spl/target/classes
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.0.2:compile (default) @ spl ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ spl ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /Users/archana/Documents/UTA/Fall2018/spl/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.0.2:testCompile (default-testCompile) @ spl ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ spl ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ spl ---
+[INFO] Building jar: /Users/archana/Documents/UTA/Fall2018/spl/target/spl-0.1.jar
+[INFO] 
+[INFO] --- maven-shade-plugin:2.4.2:shade (default) @ spl ---
+[INFO] Excluding org.scala-lang:scala-compiler:jar:2.11.7 from the shaded jar.
+[INFO] Excluding org.scala-lang:scala-library:jar:2.11.7 from the shaded jar.
+[INFO] Excluding org.scala-lang:scala-reflect:jar:2.11.7 from the shaded jar.
+[INFO] Excluding org.scala-lang.modules:scala-xml_2.11:jar:1.0.4 from the shaded jar.
+[INFO] Excluding org.scala-lang.modules:scala-parser-combinators_2.11:jar:1.0.4 from the shaded jar.
+[INFO] Including com.github.vbmacher:java-cup-runtime:jar:11b in the shaded jar.
+[INFO] Including edu.uta.spl:spl-solution:jar:0.1 in the shaded jar.
+[WARNING] spl-0.1.jar, spl-solution-0.1.jar define 8 overlapping classes: 
+[WARNING]   - edu.uta.spl.MipsGenerator
+[WARNING]   - edu.uta.spl.CodeGenerator
+[WARNING]   - edu.uta.spl.SPL$
+[WARNING]   - edu.uta.spl.SPL$$anonfun$main$1$$anonfun$apply$1
+[WARNING]   - edu.uta.spl.SPL$$anonfun$main$1
+[WARNING]   - edu.uta.spl.TypeChecker
+[WARNING]   - edu.uta.spl.SPL
+[WARNING]   - edu.uta.spl.sym
+[WARNING] java-cup-runtime-11b.jar, spl-solution-0.1.jar define 14 overlapping classes: 
+[WARNING]   - java_cup.runtime.virtual_parse_stack
+[WARNING]   - java_cup.runtime.Scanner
+[WARNING]   - java_cup.runtime.ComplexSymbolFactory$Location
+[WARNING]   - java_cup.runtime.XMLElement
+[WARNING]   - java_cup.runtime.ScannerBuffer
+[WARNING]   - java_cup.runtime.ComplexSymbolFactory$ComplexSymbol
+[WARNING]   - java_cup.runtime.ComplexSymbolFactory
+[WARNING]   - java_cup.runtime.lr_parser
+[WARNING]   - java_cup.runtime.Symbol
+[WARNING]   - java_cup.runtime.XMLElement$Error
+[WARNING]   - 4 more...
+[WARNING] maven-shade-plugin has detected that some class files are
+[WARNING] present in two or more JARs. When this happens, only one
+[WARNING] single version of the class is copied to the uber jar.
+[WARNING] Usually this is not harmful and you can skip these warnings,
+[WARNING] otherwise try to manually exclude artifacts based on
+[WARNING] mvn dependency:tree -Ddetail=true and the above output.
+[WARNING] See http://maven.apache.org/plugins/maven-shade-plugin/
+[INFO] Replacing /Users/archana/Documents/UTA/Fall2018/spl/lib/spl.jar with /Users/archana/Documents/UTA/Fall2018/spl/lib/spl-0.1-shaded.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ spl ---
+[INFO] Installing /Users/archana/Documents/UTA/Fall2018/spl/target/spl-0.1.jar to /Users/archana/.m2/repository/edu/uta/spl/spl/0.1/spl-0.1.jar
+[INFO] Installing /Users/archana/Documents/UTA/Fall2018/spl/pom.xml to /Users/archana/.m2/repository/edu/uta/spl/spl/0.1/spl-0.1.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 20.110 s
+[INFO] Finished at: 2018-02-07T22:25:50-06:00
+[INFO] Final Memory: 27M/235M
+[INFO] ------------------------------------------------------------------------
+Archanas-MacBook-Air:spl archana$ scala lib/spl.jar 1 tests/*.spl
+********* file: tests/2d_array.spl
+VAR 
+ID "a"
+EQUAL 
+LSB [ 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 2
+COMMA , 
+INTEGER_LITERAL 2
+RSB ] 
+SEMI ; 
+VAR 
+ID "b"
+EQUAL 
+LSB [ 
+ID "a"
+COMMA , 
+ID "a"
+RSB ] 
+SEMI ; 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+EQUAL 
+INTEGER_LITERAL 10
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[0][0] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[0][1] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[1][0] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[1][3] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 3
+RSB ] 
+RP ) 
+SEMI ; 
+********* file: tests/8q.spl
+VAR 
+ID "i"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "up"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "down"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "rows"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "x"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 8
+COMMA , 
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+DEF 
+ID "printv"
+LP ( 
+RP ) 
+LB { 
+PRINT 
+LP ( 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 2
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 3
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 4
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 5
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 6
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 7
+RSB ] 
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "queens"
+LP ( 
+ID "c"
+COLON : 
+INT 
+RP ) 
+LB { 
+VAR 
+ID "r"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "r"
+LT < 
+INTEGER_LITERAL 8
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+AND && 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+AND && 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+RP ) 
+LB { 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "x"
+LSB [ 
+ID "c"
+RSB ] 
+EQUAL 
+ID "r"
+SEMI ; 
+IF 
+LP ( 
+ID "c"
+EQ == 
+INTEGER_LITERAL 7
+RP ) 
+ID "printv"
+LP ( 
+RP ) 
+ELSE 
+ID "queens"
+LP ( 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "r"
+EQUAL 
+ID "r"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "queens"
+LP ( 
+INTEGER_LITERAL 0
+RP ) 
+SEMI ; 
+********* file: tests/factorial.spl
+DIV / 
+*** Lexical Error: Illegal character (line: 1, position: 2)
+Archanas-MacBook-Air:spl archana$ mvn clean install
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Building A Compiler for SPL 0.1
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ spl ---
+[INFO] Deleting /Users/archana/Documents/UTA/Fall2018/spl/target
+[INFO] Deleting /Users/archana/Documents/UTA/Fall2018/spl (includes = [**/*~, lib/*, src/main/java/**, tests/*.s], excludes = [])
+[INFO] 
+[INFO] --- jflex-maven-plugin:1.6.1:generate (default) @ spl ---
+Reading "/Users/archana/Documents/UTA/Fall2018/spl/src/main/scala/edu/uta/spl/spl.lex"
+Constructing NFA : 208 states in NFA
+Converting NFA to DFA : 
+........................................................................................................................
+122 states before minimization, 118 states in minimized DFA
+Writing code to "/Users/archana/Documents/UTA/Fall2018/spl/src/main/java/edu/uta/spl/SplLex.java"
+[INFO]   generated /Users/archana/Documents/UTA/Fall2018/spl/src/main/java/edu/uta/spl/SplLex.java
+[INFO] 
+[INFO] --- cup-maven-plugin:1.0.1:generate (default) @ spl ---
+Warning : Terminal "STRING_LITERAL" was declared but never used
+Warning : Terminal "UMINUS" was declared but never used
+Warning : Terminal "INT" was declared but never used
+Warning : Terminal "ARRAY" was declared but never used
+Warning : Terminal "FOR" was declared but never used
+Warning : Terminal "MINUS" was declared but never used
+Warning : Terminal "NOT" was declared but never used
+Warning : Terminal "AND" was declared but never used
+Warning : Terminal "LT" was declared but never used
+Warning : Terminal "TYPE" was declared but never used
+Warning : Terminal "OR" was declared but never used
+Warning : Terminal "COMMA" was declared but never used
+Warning : Terminal "DIV" was declared but never used
+Warning : Terminal "GEQ" was declared but never used
+Warning : Terminal "LSB" was declared but never used
+Warning : Terminal "LOOP" was declared but never used
+Warning : Terminal "PLUS" was declared but never used
+Warning : Terminal "EXIT" was declared but never used
+Warning : Terminal "IF" was declared but never used
+Warning : Terminal "DOT" was declared but never used
+Warning : Terminal "ID" was declared but never used
+Warning : Terminal "BOOLEAN" was declared but never used
+Warning : Terminal "LB" was declared but never used
+Warning : Terminal "RETURN" was declared but never used
+Warning : Terminal "EQUAL" was declared but never used
+Warning : Terminal "TRUE" was declared but never used
+Warning : Terminal "BY" was declared but never used
+Warning : Terminal "RB" was declared but never used
+Warning : Terminal "MOD" was declared but never used
+Warning : Terminal "NEQ" was declared but never used
+Warning : Terminal "EQ" was declared but never used
+Warning : Terminal "TIMES" was declared but never used
+Warning : Terminal "COLON" was declared but never used
+Warning : Terminal "SHARP" was declared but never used
+Warning : Terminal "ELSE" was declared but never used
+Warning : Terminal "RSB" was declared but never used
+Warning : Terminal "READ" was declared but never used
+Warning : Terminal "TO" was declared but never used
+Warning : Terminal "FLOAT" was declared but never used
+Warning : Terminal "LEQ" was declared but never used
+Warning : Terminal "STRING" was declared but never used
+Warning : Terminal "FLOAT_LITERAL" was declared but never used
+Warning : Terminal "FALSE" was declared but never used
+Warning : Terminal "GT" was declared but never used
+Warning : Terminal "VAR" was declared but never used
+Warning : Terminal "PRINT" was declared but never used
+[INFO]   generated /Users/archana/Documents/UTA/Fall2018/spl/src/main/java/edu/uta/spl/SplParser.java
+[INFO]   generated /Users/archana/Documents/UTA/Fall2018/spl/src/main/java/edu/uta/spl/sym.java
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ spl ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /Users/archana/Documents/UTA/Fall2018/spl/src/main/resources
+[INFO] 
+[INFO] --- scala-maven-plugin:3.2.1:add-source (scala-compile-first) @ spl ---
+[INFO] Add Source directory: /Users/archana/Documents/UTA/Fall2018/spl/src/main/scala
+[INFO] Add Test Source directory: /Users/archana/Documents/UTA/Fall2018/spl/src/test/scala
+[INFO] 
+[INFO] --- scala-maven-plugin:3.2.1:compile (scala-compile-first) @ spl ---
+[WARNING]  Expected all dependencies to require Scala version: 2.11.7
+[WARNING]  edu.uta.spl:spl:0.1 requires scala version: 2.11.7
+[WARNING]  org.scala-lang:scala-compiler:2.11.7 requires scala version: 2.11.7
+[WARNING]  org.scala-lang:scala-reflect:2.11.7 requires scala version: 2.11.7
+[WARNING]  org.scala-lang.modules:scala-xml_2.11:1.0.4 requires scala version: 2.11.4
+[WARNING] Multiple versions of scala libraries detected!
+[INFO] /Users/archana/Documents/UTA/Fall2018/spl/src/main/java:-1: info: compiling
+[INFO] /Users/archana/Documents/UTA/Fall2018/spl/src/main/scala:-1: info: compiling
+[INFO] Compiling 7 source files to /Users/archana/Documents/UTA/Fall2018/spl/target/classes at 1518064023672
+[WARNING] warning: there was one deprecation warning; re-run with -deprecation for details
+[WARNING] one warning found
+[INFO] prepare-compile in 0 s
+[INFO] compile in 12 s
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.0.2:compile (default-compile) @ spl ---
+[INFO] Compiling 3 source files to /Users/archana/Documents/UTA/Fall2018/spl/target/classes
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.0.2:compile (default) @ spl ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ spl ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /Users/archana/Documents/UTA/Fall2018/spl/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.0.2:testCompile (default-testCompile) @ spl ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ spl ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ spl ---
+[INFO] Building jar: /Users/archana/Documents/UTA/Fall2018/spl/target/spl-0.1.jar
+[INFO] 
+[INFO] --- maven-shade-plugin:2.4.2:shade (default) @ spl ---
+[INFO] Excluding org.scala-lang:scala-compiler:jar:2.11.7 from the shaded jar.
+[INFO] Excluding org.scala-lang:scala-library:jar:2.11.7 from the shaded jar.
+[INFO] Excluding org.scala-lang:scala-reflect:jar:2.11.7 from the shaded jar.
+[INFO] Excluding org.scala-lang.modules:scala-xml_2.11:jar:1.0.4 from the shaded jar.
+[INFO] Excluding org.scala-lang.modules:scala-parser-combinators_2.11:jar:1.0.4 from the shaded jar.
+[INFO] Including com.github.vbmacher:java-cup-runtime:jar:11b in the shaded jar.
+[INFO] Including edu.uta.spl:spl-solution:jar:0.1 in the shaded jar.
+[WARNING] spl-0.1.jar, spl-solution-0.1.jar define 8 overlapping classes: 
+[WARNING]   - edu.uta.spl.MipsGenerator
+[WARNING]   - edu.uta.spl.CodeGenerator
+[WARNING]   - edu.uta.spl.SPL$
+[WARNING]   - edu.uta.spl.SPL$$anonfun$main$1$$anonfun$apply$1
+[WARNING]   - edu.uta.spl.SPL$$anonfun$main$1
+[WARNING]   - edu.uta.spl.TypeChecker
+[WARNING]   - edu.uta.spl.SPL
+[WARNING]   - edu.uta.spl.sym
+[WARNING] java-cup-runtime-11b.jar, spl-solution-0.1.jar define 14 overlapping classes: 
+[WARNING]   - java_cup.runtime.virtual_parse_stack
+[WARNING]   - java_cup.runtime.Scanner
+[WARNING]   - java_cup.runtime.ComplexSymbolFactory$Location
+[WARNING]   - java_cup.runtime.XMLElement
+[WARNING]   - java_cup.runtime.ScannerBuffer
+[WARNING]   - java_cup.runtime.ComplexSymbolFactory$ComplexSymbol
+[WARNING]   - java_cup.runtime.ComplexSymbolFactory
+[WARNING]   - java_cup.runtime.lr_parser
+[WARNING]   - java_cup.runtime.Symbol
+[WARNING]   - java_cup.runtime.XMLElement$Error
+[WARNING]   - 4 more...
+[WARNING] maven-shade-plugin has detected that some class files are
+[WARNING] present in two or more JARs. When this happens, only one
+[WARNING] single version of the class is copied to the uber jar.
+[WARNING] Usually this is not harmful and you can skip these warnings,
+[WARNING] otherwise try to manually exclude artifacts based on
+[WARNING] mvn dependency:tree -Ddetail=true and the above output.
+[WARNING] See http://maven.apache.org/plugins/maven-shade-plugin/
+[INFO] Replacing /Users/archana/Documents/UTA/Fall2018/spl/lib/spl.jar with /Users/archana/Documents/UTA/Fall2018/spl/lib/spl-0.1-shaded.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ spl ---
+[INFO] Installing /Users/archana/Documents/UTA/Fall2018/spl/target/spl-0.1.jar to /Users/archana/.m2/repository/edu/uta/spl/spl/0.1/spl-0.1.jar
+[INFO] Installing /Users/archana/Documents/UTA/Fall2018/spl/pom.xml to /Users/archana/.m2/repository/edu/uta/spl/spl/0.1/spl-0.1.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 19.642 s
+[INFO] Finished at: 2018-02-07T22:27:19-06:00
+[INFO] Final Memory: 27M/233M
+[INFO] ------------------------------------------------------------------------
+Archanas-MacBook-Air:spl archana$ scala lib/spl.jar 1 tests/*.spl
+********* file: tests/2d_array.spl
+VAR 
+ID "a"
+EQUAL 
+LSB [ 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 2
+COMMA , 
+INTEGER_LITERAL 2
+RSB ] 
+SEMI ; 
+VAR 
+ID "b"
+EQUAL 
+LSB [ 
+ID "a"
+COMMA , 
+ID "a"
+RSB ] 
+SEMI ; 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+EQUAL 
+INTEGER_LITERAL 10
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[0][0] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[0][1] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[1][0] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[1][3] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 3
+RSB ] 
+RP ) 
+SEMI ; 
+********* file: tests/8q.spl
+VAR 
+ID "i"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "up"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "down"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "rows"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "x"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 8
+COMMA , 
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+DEF 
+ID "printv"
+LP ( 
+RP ) 
+LB { 
+PRINT 
+LP ( 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 2
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 3
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 4
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 5
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 6
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 7
+RSB ] 
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "queens"
+LP ( 
+ID "c"
+COLON : 
+INT 
+RP ) 
+LB { 
+VAR 
+ID "r"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "r"
+LT < 
+INTEGER_LITERAL 8
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+AND && 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+AND && 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+RP ) 
+LB { 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "x"
+LSB [ 
+ID "c"
+RSB ] 
+EQUAL 
+ID "r"
+SEMI ; 
+IF 
+LP ( 
+ID "c"
+EQ == 
+INTEGER_LITERAL 7
+RP ) 
+ID "printv"
+LP ( 
+RP ) 
+ELSE 
+ID "queens"
+LP ( 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "r"
+EQUAL 
+ID "r"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "queens"
+LP ( 
+INTEGER_LITERAL 0
+RP ) 
+SEMI ; 
+********* file: tests/factorial.spl
+DIV / 
+*** Lexical Error: Illegal character (line: 1, position: 2)
+Archanas-MacBook-Air:spl archana$ scala lib/spl.jar 1 tests/*.spl
+********* file: tests/2d_array.spl
+VAR 
+ID "a"
+EQUAL 
+LSB [ 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 2
+COMMA , 
+INTEGER_LITERAL 2
+RSB ] 
+SEMI ; 
+VAR 
+ID "b"
+EQUAL 
+LSB [ 
+ID "a"
+COMMA , 
+ID "a"
+RSB ] 
+SEMI ; 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+EQUAL 
+INTEGER_LITERAL 10
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[0][0] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[0][1] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[1][0] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[1][3] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 3
+RSB ] 
+RP ) 
+SEMI ; 
+********* file: tests/8q.spl
+VAR 
+ID "i"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "up"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "down"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "rows"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "x"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 8
+COMMA , 
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+DEF 
+ID "printv"
+LP ( 
+RP ) 
+LB { 
+PRINT 
+LP ( 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 2
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 3
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 4
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 5
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 6
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 7
+RSB ] 
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "queens"
+LP ( 
+ID "c"
+COLON : 
+INT 
+RP ) 
+LB { 
+VAR 
+ID "r"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "r"
+LT < 
+INTEGER_LITERAL 8
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+AND && 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+AND && 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+RP ) 
+LB { 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "x"
+LSB [ 
+ID "c"
+RSB ] 
+EQUAL 
+ID "r"
+SEMI ; 
+IF 
+LP ( 
+ID "c"
+EQ == 
+INTEGER_LITERAL 7
+RP ) 
+ID "printv"
+LP ( 
+RP ) 
+ELSE 
+ID "queens"
+LP ( 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "r"
+EQUAL 
+ID "r"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "queens"
+LP ( 
+INTEGER_LITERAL 0
+RP ) 
+SEMI ; 
+********* file: tests/factorial.spl
+DIV / 
+*** Lexical Error: Illegal character (line: 1, position: 2)
+Archanas-MacBook-Air:spl archana$ mvn clean install
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Building A Compiler for SPL 0.1
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ spl ---
+[INFO] Deleting /Users/archana/Documents/UTA/Fall2018/spl/target
+[INFO] Deleting /Users/archana/Documents/UTA/Fall2018/spl (includes = [**/*~, lib/*, src/main/java/**, tests/*.s], excludes = [])
+[INFO] 
+[INFO] --- jflex-maven-plugin:1.6.1:generate (default) @ spl ---
+Reading "/Users/archana/Documents/UTA/Fall2018/spl/src/main/scala/edu/uta/spl/spl.lex"
+Constructing NFA : 208 states in NFA
+Converting NFA to DFA : 
+........................................................................................................................
+122 states before minimization, 118 states in minimized DFA
+Writing code to "/Users/archana/Documents/UTA/Fall2018/spl/src/main/java/edu/uta/spl/SplLex.java"
+[INFO]   generated /Users/archana/Documents/UTA/Fall2018/spl/src/main/java/edu/uta/spl/SplLex.java
+[INFO] 
+[INFO] --- cup-maven-plugin:1.0.1:generate (default) @ spl ---
+Warning : Terminal "STRING_LITERAL" was declared but never used
+Warning : Terminal "UMINUS" was declared but never used
+Warning : Terminal "INT" was declared but never used
+Warning : Terminal "ARRAY" was declared but never used
+Warning : Terminal "FOR" was declared but never used
+Warning : Terminal "MINUS" was declared but never used
+Warning : Terminal "NOT" was declared but never used
+Warning : Terminal "AND" was declared but never used
+Warning : Terminal "LT" was declared but never used
+Warning : Terminal "TYPE" was declared but never used
+Warning : Terminal "OR" was declared but never used
+Warning : Terminal "COMMA" was declared but never used
+Warning : Terminal "DIV" was declared but never used
+Warning : Terminal "GEQ" was declared but never used
+Warning : Terminal "LSB" was declared but never used
+Warning : Terminal "LOOP" was declared but never used
+Warning : Terminal "PLUS" was declared but never used
+Warning : Terminal "EXIT" was declared but never used
+Warning : Terminal "IF" was declared but never used
+Warning : Terminal "DOT" was declared but never used
+Warning : Terminal "ID" was declared but never used
+Warning : Terminal "BOOLEAN" was declared but never used
+Warning : Terminal "LB" was declared but never used
+Warning : Terminal "RETURN" was declared but never used
+Warning : Terminal "EQUAL" was declared but never used
+Warning : Terminal "TRUE" was declared but never used
+Warning : Terminal "BY" was declared but never used
+Warning : Terminal "RB" was declared but never used
+Warning : Terminal "MOD" was declared but never used
+Warning : Terminal "NEQ" was declared but never used
+Warning : Terminal "EQ" was declared but never used
+Warning : Terminal "TIMES" was declared but never used
+Warning : Terminal "COLON" was declared but never used
+Warning : Terminal "SHARP" was declared but never used
+Warning : Terminal "ELSE" was declared but never used
+Warning : Terminal "RSB" was declared but never used
+Warning : Terminal "READ" was declared but never used
+Warning : Terminal "TO" was declared but never used
+Warning : Terminal "FLOAT" was declared but never used
+Warning : Terminal "LEQ" was declared but never used
+Warning : Terminal "STRING" was declared but never used
+Warning : Terminal "FLOAT_LITERAL" was declared but never used
+Warning : Terminal "FALSE" was declared but never used
+Warning : Terminal "GT" was declared but never used
+Warning : Terminal "VAR" was declared but never used
+Warning : Terminal "PRINT" was declared but never used
+[INFO]   generated /Users/archana/Documents/UTA/Fall2018/spl/src/main/java/edu/uta/spl/SplParser.java
+[INFO]   generated /Users/archana/Documents/UTA/Fall2018/spl/src/main/java/edu/uta/spl/sym.java
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ spl ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /Users/archana/Documents/UTA/Fall2018/spl/src/main/resources
+[INFO] 
+[INFO] --- scala-maven-plugin:3.2.1:add-source (scala-compile-first) @ spl ---
+[INFO] Add Source directory: /Users/archana/Documents/UTA/Fall2018/spl/src/main/scala
+[INFO] Add Test Source directory: /Users/archana/Documents/UTA/Fall2018/spl/src/test/scala
+[INFO] 
+[INFO] --- scala-maven-plugin:3.2.1:compile (scala-compile-first) @ spl ---
+[WARNING]  Expected all dependencies to require Scala version: 2.11.7
+[WARNING]  edu.uta.spl:spl:0.1 requires scala version: 2.11.7
+[WARNING]  org.scala-lang:scala-compiler:2.11.7 requires scala version: 2.11.7
+[WARNING]  org.scala-lang:scala-reflect:2.11.7 requires scala version: 2.11.7
+[WARNING]  org.scala-lang.modules:scala-xml_2.11:1.0.4 requires scala version: 2.11.4
+[WARNING] Multiple versions of scala libraries detected!
+[INFO] /Users/archana/Documents/UTA/Fall2018/spl/src/main/java:-1: info: compiling
+[INFO] /Users/archana/Documents/UTA/Fall2018/spl/src/main/scala:-1: info: compiling
+[INFO] Compiling 7 source files to /Users/archana/Documents/UTA/Fall2018/spl/target/classes at 1518064085326
+[WARNING] warning: there was one deprecation warning; re-run with -deprecation for details
+[WARNING] one warning found
+[INFO] prepare-compile in 0 s
+[INFO] compile in 11 s
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.0.2:compile (default-compile) @ spl ---
+[INFO] Compiling 3 source files to /Users/archana/Documents/UTA/Fall2018/spl/target/classes
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.0.2:compile (default) @ spl ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ spl ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /Users/archana/Documents/UTA/Fall2018/spl/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.0.2:testCompile (default-testCompile) @ spl ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ spl ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ spl ---
+[INFO] Building jar: /Users/archana/Documents/UTA/Fall2018/spl/target/spl-0.1.jar
+[INFO] 
+[INFO] --- maven-shade-plugin:2.4.2:shade (default) @ spl ---
+[INFO] Excluding org.scala-lang:scala-compiler:jar:2.11.7 from the shaded jar.
+[INFO] Excluding org.scala-lang:scala-library:jar:2.11.7 from the shaded jar.
+[INFO] Excluding org.scala-lang:scala-reflect:jar:2.11.7 from the shaded jar.
+[INFO] Excluding org.scala-lang.modules:scala-xml_2.11:jar:1.0.4 from the shaded jar.
+[INFO] Excluding org.scala-lang.modules:scala-parser-combinators_2.11:jar:1.0.4 from the shaded jar.
+[INFO] Including com.github.vbmacher:java-cup-runtime:jar:11b in the shaded jar.
+[INFO] Including edu.uta.spl:spl-solution:jar:0.1 in the shaded jar.
+[WARNING] spl-0.1.jar, spl-solution-0.1.jar define 8 overlapping classes: 
+[WARNING]   - edu.uta.spl.MipsGenerator
+[WARNING]   - edu.uta.spl.CodeGenerator
+[WARNING]   - edu.uta.spl.SPL$
+[WARNING]   - edu.uta.spl.SPL$$anonfun$main$1$$anonfun$apply$1
+[WARNING]   - edu.uta.spl.SPL$$anonfun$main$1
+[WARNING]   - edu.uta.spl.TypeChecker
+[WARNING]   - edu.uta.spl.SPL
+[WARNING]   - edu.uta.spl.sym
+[WARNING] java-cup-runtime-11b.jar, spl-solution-0.1.jar define 14 overlapping classes: 
+[WARNING]   - java_cup.runtime.virtual_parse_stack
+[WARNING]   - java_cup.runtime.Scanner
+[WARNING]   - java_cup.runtime.ComplexSymbolFactory$Location
+[WARNING]   - java_cup.runtime.XMLElement
+[WARNING]   - java_cup.runtime.ScannerBuffer
+[WARNING]   - java_cup.runtime.ComplexSymbolFactory$ComplexSymbol
+[WARNING]   - java_cup.runtime.ComplexSymbolFactory
+[WARNING]   - java_cup.runtime.lr_parser
+[WARNING]   - java_cup.runtime.Symbol
+[WARNING]   - java_cup.runtime.XMLElement$Error
+[WARNING]   - 4 more...
+[WARNING] maven-shade-plugin has detected that some class files are
+[WARNING] present in two or more JARs. When this happens, only one
+[WARNING] single version of the class is copied to the uber jar.
+[WARNING] Usually this is not harmful and you can skip these warnings,
+[WARNING] otherwise try to manually exclude artifacts based on
+[WARNING] mvn dependency:tree -Ddetail=true and the above output.
+[WARNING] See http://maven.apache.org/plugins/maven-shade-plugin/
+[INFO] Replacing /Users/archana/Documents/UTA/Fall2018/spl/lib/spl.jar with /Users/archana/Documents/UTA/Fall2018/spl/lib/spl-0.1-shaded.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ spl ---
+[INFO] Installing /Users/archana/Documents/UTA/Fall2018/spl/target/spl-0.1.jar to /Users/archana/.m2/repository/edu/uta/spl/spl/0.1/spl-0.1.jar
+[INFO] Installing /Users/archana/Documents/UTA/Fall2018/spl/pom.xml to /Users/archana/.m2/repository/edu/uta/spl/spl/0.1/spl-0.1.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 17.758 s
+[INFO] Finished at: 2018-02-07T22:28:19-06:00
+[INFO] Final Memory: 27M/231M
+[INFO] ------------------------------------------------------------------------
+Archanas-MacBook-Air:spl archana$ scala lib/spl.jar 1 tests/*.spl
+********* file: tests/2d_array.spl
+VAR 
+ID "a"
+EQUAL 
+LSB [ 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 2
+COMMA , 
+INTEGER_LITERAL 2
+RSB ] 
+SEMI ; 
+VAR 
+ID "b"
+EQUAL 
+LSB [ 
+ID "a"
+COMMA , 
+ID "a"
+RSB ] 
+SEMI ; 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+EQUAL 
+INTEGER_LITERAL 10
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[0][0] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[0][1] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[1][0] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[1][3] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 3
+RSB ] 
+RP ) 
+SEMI ; 
+********* file: tests/8q.spl
+VAR 
+ID "i"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "up"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "down"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "rows"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "x"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 8
+COMMA , 
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+DEF 
+ID "printv"
+LP ( 
+RP ) 
+LB { 
+PRINT 
+LP ( 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 2
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 3
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 4
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 5
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 6
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 7
+RSB ] 
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "queens"
+LP ( 
+ID "c"
+COLON : 
+INT 
+RP ) 
+LB { 
+VAR 
+ID "r"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "r"
+LT < 
+INTEGER_LITERAL 8
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+AND && 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+AND && 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+RP ) 
+LB { 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "x"
+LSB [ 
+ID "c"
+RSB ] 
+EQUAL 
+ID "r"
+SEMI ; 
+IF 
+LP ( 
+ID "c"
+EQ == 
+INTEGER_LITERAL 7
+RP ) 
+ID "printv"
+LP ( 
+RP ) 
+ELSE 
+ID "queens"
+LP ( 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "r"
+EQUAL 
+ID "r"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "queens"
+LP ( 
+INTEGER_LITERAL 0
+RP ) 
+SEMI ; 
+********* file: tests/factorial.spl
+DIV / 
+*** Lexical Error: Illegal character (line: 1, position: 2)
+Archanas-MacBook-Air:spl archana$ mvn clean install
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Building A Compiler for SPL 0.1
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ spl ---
+[INFO] Deleting /Users/archana/Documents/UTA/Fall2018/spl/target
+[INFO] Deleting /Users/archana/Documents/UTA/Fall2018/spl (includes = [**/*~, lib/*, src/main/java/**, tests/*.s], excludes = [])
+[INFO] 
+[INFO] --- jflex-maven-plugin:1.6.1:generate (default) @ spl ---
+Reading "/Users/archana/Documents/UTA/Fall2018/spl/src/main/scala/edu/uta/spl/spl.lex"
+Constructing NFA : 208 states in NFA
+Converting NFA to DFA : 
+.........................................................................................................................
+123 states before minimization, 118 states in minimized DFA
+Writing code to "/Users/archana/Documents/UTA/Fall2018/spl/src/main/java/edu/uta/spl/SplLex.java"
+[INFO]   generated /Users/archana/Documents/UTA/Fall2018/spl/src/main/java/edu/uta/spl/SplLex.java
+[INFO] 
+[INFO] --- cup-maven-plugin:1.0.1:generate (default) @ spl ---
+Warning : Terminal "STRING_LITERAL" was declared but never used
+Warning : Terminal "UMINUS" was declared but never used
+Warning : Terminal "INT" was declared but never used
+Warning : Terminal "ARRAY" was declared but never used
+Warning : Terminal "FOR" was declared but never used
+Warning : Terminal "MINUS" was declared but never used
+Warning : Terminal "NOT" was declared but never used
+Warning : Terminal "AND" was declared but never used
+Warning : Terminal "LT" was declared but never used
+Warning : Terminal "TYPE" was declared but never used
+Warning : Terminal "OR" was declared but never used
+Warning : Terminal "COMMA" was declared but never used
+Warning : Terminal "DIV" was declared but never used
+Warning : Terminal "GEQ" was declared but never used
+Warning : Terminal "LSB" was declared but never used
+Warning : Terminal "LOOP" was declared but never used
+Warning : Terminal "PLUS" was declared but never used
+Warning : Terminal "EXIT" was declared but never used
+Warning : Terminal "IF" was declared but never used
+Warning : Terminal "DOT" was declared but never used
+Warning : Terminal "ID" was declared but never used
+Warning : Terminal "BOOLEAN" was declared but never used
+Warning : Terminal "LB" was declared but never used
+Warning : Terminal "RETURN" was declared but never used
+Warning : Terminal "EQUAL" was declared but never used
+Warning : Terminal "TRUE" was declared but never used
+Warning : Terminal "BY" was declared but never used
+Warning : Terminal "RB" was declared but never used
+Warning : Terminal "MOD" was declared but never used
+Warning : Terminal "NEQ" was declared but never used
+Warning : Terminal "EQ" was declared but never used
+Warning : Terminal "TIMES" was declared but never used
+Warning : Terminal "COLON" was declared but never used
+Warning : Terminal "SHARP" was declared but never used
+Warning : Terminal "ELSE" was declared but never used
+Warning : Terminal "RSB" was declared but never used
+Warning : Terminal "READ" was declared but never used
+Warning : Terminal "TO" was declared but never used
+Warning : Terminal "FLOAT" was declared but never used
+Warning : Terminal "LEQ" was declared but never used
+Warning : Terminal "STRING" was declared but never used
+Warning : Terminal "FLOAT_LITERAL" was declared but never used
+Warning : Terminal "FALSE" was declared but never used
+Warning : Terminal "GT" was declared but never used
+Warning : Terminal "VAR" was declared but never used
+Warning : Terminal "PRINT" was declared but never used
+[INFO]   generated /Users/archana/Documents/UTA/Fall2018/spl/src/main/java/edu/uta/spl/SplParser.java
+[INFO]   generated /Users/archana/Documents/UTA/Fall2018/spl/src/main/java/edu/uta/spl/sym.java
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ spl ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /Users/archana/Documents/UTA/Fall2018/spl/src/main/resources
+[INFO] 
+[INFO] --- scala-maven-plugin:3.2.1:add-source (scala-compile-first) @ spl ---
+[INFO] Add Source directory: /Users/archana/Documents/UTA/Fall2018/spl/src/main/scala
+[INFO] Add Test Source directory: /Users/archana/Documents/UTA/Fall2018/spl/src/test/scala
+[INFO] 
+[INFO] --- scala-maven-plugin:3.2.1:compile (scala-compile-first) @ spl ---
+[WARNING]  Expected all dependencies to require Scala version: 2.11.7
+[WARNING]  edu.uta.spl:spl:0.1 requires scala version: 2.11.7
+[WARNING]  org.scala-lang:scala-compiler:2.11.7 requires scala version: 2.11.7
+[WARNING]  org.scala-lang:scala-reflect:2.11.7 requires scala version: 2.11.7
+[WARNING]  org.scala-lang.modules:scala-xml_2.11:1.0.4 requires scala version: 2.11.4
+[WARNING] Multiple versions of scala libraries detected!
+[INFO] /Users/archana/Documents/UTA/Fall2018/spl/src/main/java:-1: info: compiling
+[INFO] /Users/archana/Documents/UTA/Fall2018/spl/src/main/scala:-1: info: compiling
+[INFO] Compiling 7 source files to /Users/archana/Documents/UTA/Fall2018/spl/target/classes at 1518064186858
+[WARNING] warning: there was one deprecation warning; re-run with -deprecation for details
+[WARNING] one warning found
+[INFO] prepare-compile in 0 s
+[INFO] compile in 19 s
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.0.2:compile (default-compile) @ spl ---
+[INFO] Compiling 3 source files to /Users/archana/Documents/UTA/Fall2018/spl/target/classes
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.0.2:compile (default) @ spl ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ spl ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /Users/archana/Documents/UTA/Fall2018/spl/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.0.2:testCompile (default-testCompile) @ spl ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ spl ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ spl ---
+[INFO] Building jar: /Users/archana/Documents/UTA/Fall2018/spl/target/spl-0.1.jar
+[INFO] 
+[INFO] --- maven-shade-plugin:2.4.2:shade (default) @ spl ---
+[INFO] Excluding org.scala-lang:scala-compiler:jar:2.11.7 from the shaded jar.
+[INFO] Excluding org.scala-lang:scala-library:jar:2.11.7 from the shaded jar.
+[INFO] Excluding org.scala-lang:scala-reflect:jar:2.11.7 from the shaded jar.
+[INFO] Excluding org.scala-lang.modules:scala-xml_2.11:jar:1.0.4 from the shaded jar.
+[INFO] Excluding org.scala-lang.modules:scala-parser-combinators_2.11:jar:1.0.4 from the shaded jar.
+[INFO] Including com.github.vbmacher:java-cup-runtime:jar:11b in the shaded jar.
+[INFO] Including edu.uta.spl:spl-solution:jar:0.1 in the shaded jar.
+[WARNING] spl-0.1.jar, spl-solution-0.1.jar define 8 overlapping classes: 
+[WARNING]   - edu.uta.spl.MipsGenerator
+[WARNING]   - edu.uta.spl.CodeGenerator
+[WARNING]   - edu.uta.spl.SPL$
+[WARNING]   - edu.uta.spl.SPL$$anonfun$main$1$$anonfun$apply$1
+[WARNING]   - edu.uta.spl.SPL$$anonfun$main$1
+[WARNING]   - edu.uta.spl.TypeChecker
+[WARNING]   - edu.uta.spl.SPL
+[WARNING]   - edu.uta.spl.sym
+[WARNING] java-cup-runtime-11b.jar, spl-solution-0.1.jar define 14 overlapping classes: 
+[WARNING]   - java_cup.runtime.virtual_parse_stack
+[WARNING]   - java_cup.runtime.Scanner
+[WARNING]   - java_cup.runtime.ComplexSymbolFactory$Location
+[WARNING]   - java_cup.runtime.XMLElement
+[WARNING]   - java_cup.runtime.ScannerBuffer
+[WARNING]   - java_cup.runtime.ComplexSymbolFactory$ComplexSymbol
+[WARNING]   - java_cup.runtime.ComplexSymbolFactory
+[WARNING]   - java_cup.runtime.lr_parser
+[WARNING]   - java_cup.runtime.Symbol
+[WARNING]   - java_cup.runtime.XMLElement$Error
+[WARNING]   - 4 more...
+[WARNING] maven-shade-plugin has detected that some class files are
+[WARNING] present in two or more JARs. When this happens, only one
+[WARNING] single version of the class is copied to the uber jar.
+[WARNING] Usually this is not harmful and you can skip these warnings,
+[WARNING] otherwise try to manually exclude artifacts based on
+[WARNING] mvn dependency:tree -Ddetail=true and the above output.
+[WARNING] See http://maven.apache.org/plugins/maven-shade-plugin/
+[INFO] Replacing /Users/archana/Documents/UTA/Fall2018/spl/lib/spl.jar with /Users/archana/Documents/UTA/Fall2018/spl/lib/spl-0.1-shaded.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ spl ---
+[INFO] Installing /Users/archana/Documents/UTA/Fall2018/spl/target/spl-0.1.jar to /Users/archana/.m2/repository/edu/uta/spl/spl/0.1/spl-0.1.jar
+[INFO] Installing /Users/archana/Documents/UTA/Fall2018/spl/pom.xml to /Users/archana/.m2/repository/edu/uta/spl/spl/0.1/spl-0.1.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 31.335 s
+[INFO] Finished at: 2018-02-07T22:30:13-06:00
+[INFO] Final Memory: 26M/233M
+[INFO] ------------------------------------------------------------------------
+Archanas-MacBook-Air:spl archana$ scala lib/spl.jar 1 tests/*.spl
+********* file: tests/2d_array.spl
+VAR 
+ID "a"
+EQUAL 
+LSB [ 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 2
+COMMA , 
+INTEGER_LITERAL 2
+RSB ] 
+SEMI ; 
+VAR 
+ID "b"
+EQUAL 
+LSB [ 
+ID "a"
+COMMA , 
+ID "a"
+RSB ] 
+SEMI ; 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+EQUAL 
+INTEGER_LITERAL 10
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[0][0] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[0][1] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[1][0] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[1][3] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 3
+RSB ] 
+RP ) 
+SEMI ; 
+********* file: tests/8q.spl
+VAR 
+ID "i"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "up"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "down"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "rows"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "x"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 8
+COMMA , 
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+DEF 
+ID "printv"
+LP ( 
+RP ) 
+LB { 
+PRINT 
+LP ( 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 2
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 3
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 4
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 5
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 6
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 7
+RSB ] 
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "queens"
+LP ( 
+ID "c"
+COLON : 
+INT 
+RP ) 
+LB { 
+VAR 
+ID "r"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "r"
+LT < 
+INTEGER_LITERAL 8
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+AND && 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+AND && 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+RP ) 
+LB { 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "x"
+LSB [ 
+ID "c"
+RSB ] 
+EQUAL 
+ID "r"
+SEMI ; 
+IF 
+LP ( 
+ID "c"
+EQ == 
+INTEGER_LITERAL 7
+RP ) 
+ID "printv"
+LP ( 
+RP ) 
+ELSE 
+ID "queens"
+LP ( 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "r"
+EQUAL 
+ID "r"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "queens"
+LP ( 
+INTEGER_LITERAL 0
+RP ) 
+SEMI ; 
+********* file: tests/factorial.spl
+VAR 
+ID "n"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+DEF 
+ID "fact"
+LP ( 
+ID "i"
+COLON : 
+INT 
+RP ) 
+COLON : 
+INT 
+LB { 
+IF 
+LP ( 
+ID "i"
+LEQ <= 
+INTEGER_LITERAL 0
+RP ) 
+RETURN 
+INTEGER_LITERAL 1
+ELSE 
+RETURN 
+ID "i"
+*** Lexical Error: Illegal character (line: 7, position: 19)
+Archanas-MacBook-Air:spl archana$ mvn clean install
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Building A Compiler for SPL 0.1
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ spl ---
+[INFO] Deleting /Users/archana/Documents/UTA/Fall2018/spl/target
+[INFO] Deleting /Users/archana/Documents/UTA/Fall2018/spl (includes = [**/*~, lib/*, src/main/java/**, tests/*.s], excludes = [])
+[INFO] 
+[INFO] --- jflex-maven-plugin:1.6.1:generate (default) @ spl ---
+Reading "/Users/archana/Documents/UTA/Fall2018/spl/src/main/scala/edu/uta/spl/spl.lex"
+Constructing NFA : 210 states in NFA
+Converting NFA to DFA : 
+..........................................................................................................................
+124 states before minimization, 119 states in minimized DFA
+Writing code to "/Users/archana/Documents/UTA/Fall2018/spl/src/main/java/edu/uta/spl/SplLex.java"
+[INFO]   generated /Users/archana/Documents/UTA/Fall2018/spl/src/main/java/edu/uta/spl/SplLex.java
+[INFO] 
+[INFO] --- cup-maven-plugin:1.0.1:generate (default) @ spl ---
+Warning : Terminal "STRING_LITERAL" was declared but never used
+Warning : Terminal "UMINUS" was declared but never used
+Warning : Terminal "INT" was declared but never used
+Warning : Terminal "ARRAY" was declared but never used
+Warning : Terminal "FOR" was declared but never used
+Warning : Terminal "MINUS" was declared but never used
+Warning : Terminal "NOT" was declared but never used
+Warning : Terminal "AND" was declared but never used
+Warning : Terminal "LT" was declared but never used
+Warning : Terminal "TYPE" was declared but never used
+Warning : Terminal "OR" was declared but never used
+Warning : Terminal "COMMA" was declared but never used
+Warning : Terminal "DIV" was declared but never used
+Warning : Terminal "GEQ" was declared but never used
+Warning : Terminal "LSB" was declared but never used
+Warning : Terminal "LOOP" was declared but never used
+Warning : Terminal "PLUS" was declared but never used
+Warning : Terminal "EXIT" was declared but never used
+Warning : Terminal "IF" was declared but never used
+Warning : Terminal "DOT" was declared but never used
+Warning : Terminal "ID" was declared but never used
+Warning : Terminal "BOOLEAN" was declared but never used
+Warning : Terminal "LB" was declared but never used
+Warning : Terminal "RETURN" was declared but never used
+Warning : Terminal "EQUAL" was declared but never used
+Warning : Terminal "TRUE" was declared but never used
+Warning : Terminal "BY" was declared but never used
+Warning : Terminal "RB" was declared but never used
+Warning : Terminal "MOD" was declared but never used
+Warning : Terminal "NEQ" was declared but never used
+Warning : Terminal "EQ" was declared but never used
+Warning : Terminal "TIMES" was declared but never used
+Warning : Terminal "COLON" was declared but never used
+Warning : Terminal "SHARP" was declared but never used
+Warning : Terminal "ELSE" was declared but never used
+Warning : Terminal "RSB" was declared but never used
+Warning : Terminal "READ" was declared but never used
+Warning : Terminal "TO" was declared but never used
+Warning : Terminal "FLOAT" was declared but never used
+Warning : Terminal "LEQ" was declared but never used
+Warning : Terminal "STRING" was declared but never used
+Warning : Terminal "FLOAT_LITERAL" was declared but never used
+Warning : Terminal "FALSE" was declared but never used
+Warning : Terminal "GT" was declared but never used
+Warning : Terminal "VAR" was declared but never used
+Warning : Terminal "PRINT" was declared but never used
+[INFO]   generated /Users/archana/Documents/UTA/Fall2018/spl/src/main/java/edu/uta/spl/SplParser.java
+[INFO]   generated /Users/archana/Documents/UTA/Fall2018/spl/src/main/java/edu/uta/spl/sym.java
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ spl ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /Users/archana/Documents/UTA/Fall2018/spl/src/main/resources
+[INFO] 
+[INFO] --- scala-maven-plugin:3.2.1:add-source (scala-compile-first) @ spl ---
+[INFO] Add Source directory: /Users/archana/Documents/UTA/Fall2018/spl/src/main/scala
+[INFO] Add Test Source directory: /Users/archana/Documents/UTA/Fall2018/spl/src/test/scala
+[INFO] 
+[INFO] --- scala-maven-plugin:3.2.1:compile (scala-compile-first) @ spl ---
+[WARNING]  Expected all dependencies to require Scala version: 2.11.7
+[WARNING]  edu.uta.spl:spl:0.1 requires scala version: 2.11.7
+[WARNING]  org.scala-lang:scala-compiler:2.11.7 requires scala version: 2.11.7
+[WARNING]  org.scala-lang:scala-reflect:2.11.7 requires scala version: 2.11.7
+[WARNING]  org.scala-lang.modules:scala-xml_2.11:1.0.4 requires scala version: 2.11.4
+[WARNING] Multiple versions of scala libraries detected!
+[INFO] /Users/archana/Documents/UTA/Fall2018/spl/src/main/java:-1: info: compiling
+[INFO] /Users/archana/Documents/UTA/Fall2018/spl/src/main/scala:-1: info: compiling
+[INFO] Compiling 7 source files to /Users/archana/Documents/UTA/Fall2018/spl/target/classes at 1518064460122
+[WARNING] warning: there was one deprecation warning; re-run with -deprecation for details
+[WARNING] one warning found
+[INFO] prepare-compile in 0 s
+[INFO] compile in 21 s
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.0.2:compile (default-compile) @ spl ---
+[INFO] Compiling 3 source files to /Users/archana/Documents/UTA/Fall2018/spl/target/classes
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.0.2:compile (default) @ spl ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ spl ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /Users/archana/Documents/UTA/Fall2018/spl/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.0.2:testCompile (default-testCompile) @ spl ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ spl ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ spl ---
+[INFO] Building jar: /Users/archana/Documents/UTA/Fall2018/spl/target/spl-0.1.jar
+[INFO] 
+[INFO] --- maven-shade-plugin:2.4.2:shade (default) @ spl ---
+[INFO] Excluding org.scala-lang:scala-compiler:jar:2.11.7 from the shaded jar.
+[INFO] Excluding org.scala-lang:scala-library:jar:2.11.7 from the shaded jar.
+[INFO] Excluding org.scala-lang:scala-reflect:jar:2.11.7 from the shaded jar.
+[INFO] Excluding org.scala-lang.modules:scala-xml_2.11:jar:1.0.4 from the shaded jar.
+[INFO] Excluding org.scala-lang.modules:scala-parser-combinators_2.11:jar:1.0.4 from the shaded jar.
+[INFO] Including com.github.vbmacher:java-cup-runtime:jar:11b in the shaded jar.
+[INFO] Including edu.uta.spl:spl-solution:jar:0.1 in the shaded jar.
+[WARNING] spl-0.1.jar, spl-solution-0.1.jar define 8 overlapping classes: 
+[WARNING]   - edu.uta.spl.MipsGenerator
+[WARNING]   - edu.uta.spl.CodeGenerator
+[WARNING]   - edu.uta.spl.SPL$
+[WARNING]   - edu.uta.spl.SPL$$anonfun$main$1$$anonfun$apply$1
+[WARNING]   - edu.uta.spl.SPL$$anonfun$main$1
+[WARNING]   - edu.uta.spl.TypeChecker
+[WARNING]   - edu.uta.spl.SPL
+[WARNING]   - edu.uta.spl.sym
+[WARNING] java-cup-runtime-11b.jar, spl-solution-0.1.jar define 14 overlapping classes: 
+[WARNING]   - java_cup.runtime.virtual_parse_stack
+[WARNING]   - java_cup.runtime.Scanner
+[WARNING]   - java_cup.runtime.ComplexSymbolFactory$Location
+[WARNING]   - java_cup.runtime.XMLElement
+[WARNING]   - java_cup.runtime.ScannerBuffer
+[WARNING]   - java_cup.runtime.ComplexSymbolFactory$ComplexSymbol
+[WARNING]   - java_cup.runtime.ComplexSymbolFactory
+[WARNING]   - java_cup.runtime.lr_parser
+[WARNING]   - java_cup.runtime.Symbol
+[WARNING]   - java_cup.runtime.XMLElement$Error
+[WARNING]   - 4 more...
+[WARNING] maven-shade-plugin has detected that some class files are
+[WARNING] present in two or more JARs. When this happens, only one
+[WARNING] single version of the class is copied to the uber jar.
+[WARNING] Usually this is not harmful and you can skip these warnings,
+[WARNING] otherwise try to manually exclude artifacts based on
+[WARNING] mvn dependency:tree -Ddetail=true and the above output.
+[WARNING] See http://maven.apache.org/plugins/maven-shade-plugin/
+[INFO] Replacing /Users/archana/Documents/UTA/Fall2018/spl/lib/spl.jar with /Users/archana/Documents/UTA/Fall2018/spl/lib/spl-0.1-shaded.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ spl ---
+[INFO] Installing /Users/archana/Documents/UTA/Fall2018/spl/target/spl-0.1.jar to /Users/archana/.m2/repository/edu/uta/spl/spl/0.1/spl-0.1.jar
+[INFO] Installing /Users/archana/Documents/UTA/Fall2018/spl/pom.xml to /Users/archana/.m2/repository/edu/uta/spl/spl/0.1/spl-0.1.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 32.566 s
+[INFO] Finished at: 2018-02-07T22:34:45-06:00
+[INFO] Final Memory: 27M/237M
+[INFO] ------------------------------------------------------------------------
+Archanas-MacBook-Air:spl archana$ scala lib/spl.jar 1 tests/*.spl
+********* file: tests/2d_array.spl
+VAR 
+ID "a"
+EQUAL 
+LSB [ 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 2
+COMMA , 
+INTEGER_LITERAL 2
+RSB ] 
+SEMI ; 
+VAR 
+ID "b"
+EQUAL 
+LSB [ 
+ID "a"
+COMMA , 
+ID "a"
+RSB ] 
+SEMI ; 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+EQUAL 
+INTEGER_LITERAL 10
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[0][0] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[0][1] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[1][0] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[1][3] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 3
+RSB ] 
+RP ) 
+SEMI ; 
+********* file: tests/8q.spl
+VAR 
+ID "i"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "up"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "down"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "rows"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "x"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 8
+COMMA , 
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+DEF 
+ID "printv"
+LP ( 
+RP ) 
+LB { 
+PRINT 
+LP ( 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 2
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 3
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 4
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 5
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 6
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 7
+RSB ] 
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "queens"
+LP ( 
+ID "c"
+COLON : 
+INT 
+RP ) 
+LB { 
+VAR 
+ID "r"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "r"
+LT < 
+INTEGER_LITERAL 8
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+AND && 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+AND && 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+RP ) 
+LB { 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "x"
+LSB [ 
+ID "c"
+RSB ] 
+EQUAL 
+ID "r"
+SEMI ; 
+IF 
+LP ( 
+ID "c"
+EQ == 
+INTEGER_LITERAL 7
+RP ) 
+ID "printv"
+LP ( 
+RP ) 
+ELSE 
+ID "queens"
+LP ( 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "r"
+EQUAL 
+ID "r"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "queens"
+LP ( 
+INTEGER_LITERAL 0
+RP ) 
+SEMI ; 
+********* file: tests/factorial.spl
+VAR 
+ID "n"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+DEF 
+ID "fact"
+LP ( 
+ID "i"
+COLON : 
+INT 
+RP ) 
+COLON : 
+INT 
+LB { 
+IF 
+LP ( 
+ID "i"
+LEQ <= 
+INTEGER_LITERAL 0
+RP ) 
+RETURN 
+INTEGER_LITERAL 1
+ELSE 
+RETURN 
+ID "i"
+TIMES * 
+ID "fact"
+LP ( 
+ID "i"
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Enter a number:"
+RP ) 
+SEMI ; 
+READ 
+LP ( 
+ID "n"
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+ID "fact"
+LP ( 
+ID "n"
+RP ) 
+RP ) 
+SEMI ; 
+********* file: tests/fib.spl
+VAR 
+ID "N"
+EQUAL 
+INTEGER_LITERAL 40
+SEMI ; 
+VAR 
+ID "I"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "fibbs"
+EQUAL 
+ARRAY 
+LP ( 
+ID "N"
+COMMA , 
+INTEGER_LITERAL 0
+RP ) 
+SEMI ; 
+VAR 
+ID "j"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "n"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+DEF 
+ID "init"
+LP ( 
+ID "a"
+COLON : 
+ARRAY 
+LSB [ 
+INT 
+RSB ] 
+RP ) 
+LB { 
+VAR 
+ID "i"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 2
+SEMI ; 
+ID "a"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+EQUAL 
+INTEGER_LITERAL 1
+SEMI ; 
+ID "a"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+EQUAL 
+INTEGER_LITERAL 1
+SEMI ; 
+WHILE 
+LP ( 
+ID "i"
+LT < 
+ID "N"
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+LB { 
+ID "a"
+LSB [ 
+ID "i"
+RSB ] 
+EQUAL 
+ID "I"
+SEMI ; 
+ID "i"
+EQUAL 
+ID "i"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "fibb"
+LP ( 
+ID "i"
+COLON : 
+INT 
+RP ) 
+COLON : 
+INT 
+LB { 
+IF 
+LP ( 
+ID "fibbs"
+LSB [ 
+ID "i"
+RSB ] 
+EQ == 
+ID "I"
+RP ) 
+ID "fibbs"
+LSB [ 
+ID "i"
+RSB ] 
+EQUAL 
+ID "fibb"
+LP ( 
+ID "i"
+MINUS - 
+INTEGER_LITERAL 2
+RP ) 
+PLUS + 
+ID "fibb"
+LP ( 
+ID "i"
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+RETURN 
+ID "fibbs"
+LSB [ 
+ID "i"
+RSB ] 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "init"
+LP ( 
+ID "fibbs"
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Enter indices of eight fibbonacci numbers:"
+RP ) 
+SEMI ; 
+WHILE 
+LP ( 
+ID "j"
+LT < 
+INTEGER_LITERAL 8
+RP ) 
+LB { 
+READ 
+LP ( 
+ID "n"
+RP ) 
+SEMI ; 
+IF 
+LP ( 
+ID "n"
+GEQ >= 
+ID "N"
+RP ) 
+PRINT 
+LP ( 
+STRING_LITERAL "Maximum index is "
+COMMA , 
+ID "N"
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+ELSE 
+PRINT 
+LP ( 
+ID "n"
+COMMA , 
+STRING_LITERAL " "
+COMMA , 
+ID "fibb"
+LP ( 
+ID "n"
+RP ) 
+RP ) 
+SEMI ; 
+ID "j"
+EQUAL 
+ID "j"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+********* file: tests/hanoi.spl
+DEF 
+ID "hanoi"
+LP ( 
+ID "n"
+COLON : 
+INT 
+COMMA , 
+ID "src"
+COLON : 
+INT 
+COMMA , 
+ID "dst"
+COLON : 
+INT 
+COMMA , 
+ID "tmp"
+COLON : 
+INT 
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "n"
+GT > 
+INTEGER_LITERAL 0
+RP ) 
+LB { 
+ID "hanoi"
+LP ( 
+ID "n"
+MINUS - 
+INTEGER_LITERAL 1
+COMMA , 
+ID "src"
+COMMA , 
+ID "tmp"
+COMMA , 
+ID "dst"
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+ID "n"
+COMMA , 
+STRING_LITERAL " "
+COMMA , 
+ID "src"
+COMMA , 
+STRING_LITERAL " "
+COMMA , 
+ID "dst"
+RP ) 
+SEMI ; 
+ID "hanoi"
+LP ( 
+ID "n"
+MINUS - 
+INTEGER_LITERAL 1
+COMMA , 
+ID "tmp"
+COMMA , 
+ID "dst"
+COMMA , 
+ID "src"
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "hanoi"
+LP ( 
+INTEGER_LITERAL 5
+COMMA , 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 2
+COMMA , 
+INTEGER_LITERAL 3
+RP ) 
+SEMI ; 
+********* file: tests/hello.spl
+PRINT 
+LP ( 
+STRING_LITERAL "Hello World!"
+RP ) 
+SEMI ; 
+********* file: tests/prime.spl
+VAR 
+ID "size"
+EQUAL 
+INTEGER_LITERAL 8190
+SEMI ; 
+VAR 
+ID "IsPrime"
+EQUAL 
+ARRAY 
+LP ( 
+ID "size"
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "i"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "j"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "k"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "prime"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "count"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+DEF 
+ID "mark"
+LP ( 
+ID "x"
+COLON : 
+INT 
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "x"
+LT < 
+ID "size"
+RP ) 
+LB { 
+ID "IsPrime"
+LSB [ 
+ID "x"
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "x"
+EQUAL 
+ID "x"
+PLUS + 
+ID "prime"
+SEMI ; 
+ID "mark"
+LP ( 
+ID "x"
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+WHILE 
+LP ( 
+ID "j"
+LT < 
+ID "size"
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "IsPrime"
+LSB [ 
+ID "j"
+RSB ] 
+EQ == 
+TRUE 
+RP ) 
+LB { 
+ID "prime"
+EQUAL 
+ID "j"
+PLUS + 
+ID "j"
+PLUS + 
+INTEGER_LITERAL 3
+SEMI ; 
+ID "k"
+EQUAL 
+ID "j"
+PLUS + 
+ID "prime"
+SEMI ; 
+ID "mark"
+LP ( 
+ID "k"
+RP ) 
+SEMI ; 
+ID "count"
+EQUAL 
+ID "count"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+ID "j"
+EQUAL 
+ID "j"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "The number of prime numbers less than "
+COMMA , 
+ID "size"
+COMMA , 
+STRING_LITERAL " is "
+COMMA , 
+ID "count"
+RP ) 
+SEMI ; 
+********* file: tests/sort.spl
+VAR 
+ID "N"
+EQUAL 
+INTEGER_LITERAL 10
+SEMI ; 
+VAR 
+ID "a"
+EQUAL 
+ARRAY 
+LP ( 
+ID "N"
+COMMA , 
+INTEGER_LITERAL 0
+RP ) 
+SEMI ; 
+DEF 
+ID "quicksort"
+LP ( 
+ID "a"
+COLON : 
+ARRAY 
+LSB [ 
+INT 
+RSB ] 
+COMMA , 
+ID "m"
+COLON : 
+INT 
+COMMA , 
+ID "n"
+COLON : 
+INT 
+RP ) 
+LB { 
+VAR 
+ID "i"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+DEF 
+ID "exchange"
+LP ( 
+ID "p"
+COLON : 
+INT 
+COMMA , 
+ID "q"
+COLON : 
+INT 
+RP ) 
+LB { 
+VAR 
+ID "x"
+EQUAL 
+ID "a"
+LSB [ 
+ID "p"
+RSB ] 
+SEMI ; 
+ID "a"
+LSB [ 
+ID "p"
+RSB ] 
+EQUAL 
+ID "a"
+LSB [ 
+ID "q"
+RSB ] 
+SEMI ; 
+ID "a"
+LSB [ 
+ID "q"
+RSB ] 
+EQUAL 
+ID "x"
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "partition"
+LP ( 
+ID "y"
+COLON : 
+INT 
+COMMA , 
+ID "z"
+COLON : 
+INT 
+RP ) 
+COLON : 
+INT 
+LB { 
+VAR 
+ID "i"
+EQUAL 
+ID "y"
+SEMI ; 
+VAR 
+ID "j"
+EQUAL 
+ID "z"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+DEF 
+ID "meet"
+LP ( 
+RP ) 
+LB { 
+DEF 
+ID "up"
+LP ( 
+RP ) 
+LB { 
+ID "i"
+EQUAL 
+ID "i"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+IF 
+LP ( 
+ID "i"
+LT < 
+ID "N"
+RP ) 
+IF 
+LP ( 
+ID "a"
+LSB [ 
+ID "i"
+RSB ] 
+LT < 
+ID "a"
+LSB [ 
+ID "y"
+RSB ] 
+RP ) 
+ID "up"
+LP ( 
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "down"
+LP ( 
+RP ) 
+LB { 
+ID "j"
+EQUAL 
+ID "j"
+MINUS - 
+INTEGER_LITERAL 1
+SEMI ; 
+IF 
+LP ( 
+ID "a"
+LSB [ 
+ID "j"
+RSB ] 
+GT > 
+ID "a"
+LSB [ 
+ID "y"
+RSB ] 
+RP ) 
+ID "down"
+LP ( 
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+IF 
+LP ( 
+ID "i"
+LT < 
+ID "j"
+RP ) 
+LB { 
+ID "up"
+LP ( 
+RP ) 
+SEMI ; 
+ID "down"
+LP ( 
+RP ) 
+SEMI ; 
+IF 
+LP ( 
+ID "i"
+LT < 
+ID "j"
+RP ) 
+ID "exchange"
+LP ( 
+ID "i"
+COMMA , 
+ID "j"
+RP ) 
+SEMI ; 
+ID "meet"
+LP ( 
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "meet"
+LP ( 
+RP ) 
+SEMI ; 
+ID "exchange"
+LP ( 
+ID "y"
+COMMA , 
+ID "j"
+RP ) 
+SEMI ; 
+RETURN 
+ID "j"
+SEMI ; 
+RB } 
+SEMI ; 
+IF 
+LP ( 
+ID "n"
+GT > 
+ID "m"
+RP ) 
+LB { 
+ID "i"
+EQUAL 
+ID "partition"
+LP ( 
+ID "m"
+COMMA , 
+ID "n"
+RP ) 
+SEMI ; 
+ID "quicksort"
+LP ( 
+ID "a"
+COMMA , 
+ID "m"
+COMMA , 
+ID "i"
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+ID "quicksort"
+LP ( 
+ID "a"
+COMMA , 
+ID "i"
+PLUS + 
+INTEGER_LITERAL 1
+COMMA , 
+ID "n"
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "readarray"
+LP ( 
+RP ) 
+LB { 
+VAR 
+ID "i"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "i"
+LT < 
+ID "N"
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+LB { 
+READ 
+LP ( 
+ID "a"
+LSB [ 
+ID "i"
+RSB ] 
+RP ) 
+SEMI ; 
+ID "i"
+EQUAL 
+ID "i"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+ID "a"
+LSB [ 
+ID "i"
+RSB ] 
+EQUAL 
+MINUS - 
+INTEGER_LITERAL 1000
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "writearray"
+LP ( 
+RP ) 
+LB { 
+VAR 
+ID "i"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "i"
+LT < 
+ID "N"
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+LB { 
+PRINT 
+LP ( 
+ID "a"
+LSB [ 
+ID "i"
+RSB ] 
+RP ) 
+SEMI ; 
+ID "i"
+EQUAL 
+ID "i"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Give 9 integers:"
+RP ) 
+SEMI ; 
+ID "readarray"
+LP ( 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "The sorted numbers are:"
+RP ) 
+SEMI ; 
+ID "quicksort"
+LP ( 
+ID "a"
+COMMA , 
+INTEGER_LITERAL 0
+COMMA , 
+ID "N"
+MINUS - 
+INTEGER_LITERAL 2
+RP ) 
+SEMI ; 
+ID "writearray"
+LP ( 
+RP ) 
+SEMI ; 
+********* file: tests/square.spl
+VAR 
+ID "SIZE"
+EQUAL 
+INTEGER_LITERAL 5
+SEMI ; 
+VAR 
+ID "I"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "J"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "K"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "CELL"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "B"
+EQUAL 
+ARRAY 
+LP ( 
+ID "SIZE"
+COMMA , 
+INTEGER_LITERAL 0
+RP ) 
+SEMI ; 
+VAR 
+ID "C"
+EQUAL 
+ARRAY 
+LP ( 
+ID "SIZE"
+COMMA , 
+ARRAY 
+LP ( 
+ID "SIZE"
+COMMA , 
+INTEGER_LITERAL 0
+RP ) 
+RP ) 
+SEMI ; 
+VAR 
+ID "D"
+EQUAL 
+ARRAY 
+LP ( 
+ID "SIZE"
+COMMA , 
+ARRAY 
+LP ( 
+ID "SIZE"
+COMMA , 
+INTEGER_LITERAL 0
+RP ) 
+RP ) 
+SEMI ; 
+ID "I"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "I"
+LT < 
+ID "SIZE"
+RP ) 
+LB { 
+ID "C"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+ID "I"
+RSB ] 
+EQUAL 
+ID "I"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+ID "I"
+EQUAL 
+ID "I"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+ID "I"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "I"
+LT < 
+ID "SIZE"
+RP ) 
+LB { 
+ID "J"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "J"
+LT < 
+ID "SIZE"
+RP ) 
+LB { 
+ID "CELL"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+ID "K"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "K"
+LT < 
+ID "SIZE"
+RP ) 
+LB { 
+ID "CELL"
+EQUAL 
+ID "CELL"
+PLUS + 
+ID "C"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+ID "K"
+RSB ] 
+TIMES * 
+ID "C"
+LSB [ 
+ID "K"
+RSB ] 
+LSB [ 
+ID "J"
+RSB ] 
+SEMI ; 
+ID "K"
+EQUAL 
+ID "K"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+ID "D"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+ID "J"
+RSB ] 
+EQUAL 
+ID "CELL"
+SEMI ; 
+ID "J"
+EQUAL 
+ID "J"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+ID "I"
+EQUAL 
+ID "I"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Input matrix"
+RP ) 
+SEMI ; 
+ID "I"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "I"
+LT < 
+ID "SIZE"
+RP ) 
+LB { 
+PRINT 
+LP ( 
+ID "C"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "C"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "C"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 2
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "C"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 3
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "C"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 4
+RSB ] 
+RP ) 
+SEMI ; 
+ID "I"
+EQUAL 
+ID "I"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+PRINT 
+LP ( 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Input matrix squared"
+RP ) 
+SEMI ; 
+ID "I"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "I"
+LT < 
+ID "SIZE"
+RP ) 
+LB { 
+PRINT 
+LP ( 
+ID "D"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "D"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "D"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 2
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "D"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 3
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "D"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 4
+RSB ] 
+RP ) 
+SEMI ; 
+ID "I"
+EQUAL 
+ID "I"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+********* file: tests/test1.spl
+VAR 
+ID "x"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 6
+SEMI ; 
+VAR 
+ID "y"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 3
+SEMI ; 
+DEF 
+ID "f"
+LP ( 
+ID "a"
+COLON : 
+INT 
+RP ) 
+LB { 
+VAR 
+ID "i"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 2
+SEMI ; 
+PRINT 
+LP ( 
+ID "a"
+RP ) 
+SEMI ; 
+FOR 
+LP ( 
+ID "k"
+EQUAL 
+INTEGER_LITERAL 1
+TO 
+ID "a"
+RP ) 
+PRINT 
+LP ( 
+ID "k"
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "f"
+LP ( 
+ID "x"
+PLUS + 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+ID "x"
+PLUS + 
+ID "y"
+TIMES * 
+INTEGER_LITERAL 2
+RP ) 
+SEMI ; 
+********* file: tests/test2.spl
+VAR 
+ID "x"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Input: "
+RP ) 
+SEMI ; 
+READ 
+LP ( 
+ID "x"
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+INTEGER_LITERAL 1
+PLUS + 
+ID "x"
+TIMES * 
+INTEGER_LITERAL 2
+RP ) 
+SEMI ; 
+********* file: tests/test3.spl
+TYPE 
+ID "IARRAY"
+EQUAL 
+ARRAY 
+LSB [ 
+INT 
+RSB ] 
+SEMI ; 
+VAR 
+ID "a"
+EQUAL 
+LSB [ 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 2
+COMMA , 
+INTEGER_LITERAL 5
+COMMA , 
+INTEGER_LITERAL 6
+COMMA , 
+INTEGER_LITERAL 6
+COMMA , 
+INTEGER_LITERAL 6
+COMMA , 
+INTEGER_LITERAL 6
+COMMA , 
+INTEGER_LITERAL 100
+RSB ] 
+SEMI ; 
+VAR 
+ID "k"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+FOR 
+LP ( 
+ID "i"
+EQUAL 
+INTEGER_LITERAL 0
+TO 
+INTEGER_LITERAL 8
+RP ) 
+PRINT 
+LP ( 
+STRING_LITERAL "a["
+COMMA , 
+ID "i"
+COMMA , 
+STRING_LITERAL "] is "
+COMMA , 
+ID "a"
+LSB [ 
+ID "i"
+RSB ] 
+RP ) 
+SEMI ; 
+WHILE 
+LP ( 
+ID "k"
+LT < 
+INTEGER_LITERAL 12
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "k"
+LT < 
+INTEGER_LITERAL 9
+AND && 
+ID "a"
+LSB [ 
+ID "k"
+RSB ] 
+LT < 
+INTEGER_LITERAL 10
+RP ) 
+PRINT 
+LP ( 
+ID "k"
+COMMA , 
+STRING_LITERAL " "
+COMMA , 
+ID "a"
+LSB [ 
+ID "k"
+RSB ] 
+RP ) 
+SEMI ; 
+ID "k"
+EQUAL 
+ID "k"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+********* file: tests/test4.spl
+TYPE 
+ID "rec"
+EQUAL 
+LB { 
+ID "a"
+COLON : 
+INT 
+COMMA , 
+ID "b"
+COLON : 
+INT 
+RB } 
+SEMI ; 
+VAR 
+ID "x"
+EQUAL 
+LB { 
+ID "a"
+EQUAL 
+INTEGER_LITERAL 23
+COMMA , 
+ID "b"
+EQUAL 
+INTEGER_LITERAL 67
+RB } 
+SEMI ; 
+ID "x"
+DOT . 
+ID "a"
+EQUAL 
+INTEGER_LITERAL 89
+SEMI ; 
+PRINT 
+LP ( 
+ID "x"
+DOT . 
+ID "a"
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "x"
+DOT . 
+ID "b"
+RP ) 
+SEMI ; 
+********* file: tests/tree.spl
+TYPE 
+ID "tree"
+EQUAL 
+LB { 
+ID "left"
+COLON : 
+ID "tree"
+COMMA , 
+ID "info"
+COLON : 
+INT 
+COMMA , 
+ID "right"
+COLON : 
+ID "tree"
+RB } 
+SEMI ; 
+VAR 
+ID "x"
+COLON : 
+ID "tree"
+EQUAL 
+LB { 
+ID "left"
+EQUAL 
+LP ( 
+RP ) 
+COMMA , 
+ID "info"
+EQUAL 
+INTEGER_LITERAL 3
+COMMA , 
+ID "right"
+EQUAL 
+LP ( 
+RP ) 
+RB } 
+SEMI ; 
+DEF 
+ID "preorder"
+LP ( 
+ID "x"
+COLON : 
+ID "tree"
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "x"
+LT < 
+GT > 
+LP ( 
+RP ) 
+RP ) 
+LB { 
+PRINT 
+LP ( 
+ID "x"
+DOT . 
+ID "info"
+RP ) 
+SEMI ; 
+ID "preorder"
+LP ( 
+ID "x"
+DOT . 
+ID "left"
+RP ) 
+SEMI ; 
+ID "preorder"
+LP ( 
+ID "x"
+DOT . 
+ID "right"
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "sum"
+LP ( 
+ID "x"
+COLON : 
+ID "tree"
+RP ) 
+COLON : 
+INT 
+LB { 
+IF 
+LP ( 
+ID "x"
+EQ == 
+LP ( 
+RP ) 
+RP ) 
+RETURN 
+INTEGER_LITERAL 0
+ELSE 
+RETURN 
+ID "sum"
+LP ( 
+ID "x"
+DOT . 
+ID "left"
+RP ) 
+PLUS + 
+ID "x"
+DOT . 
+ID "info"
+PLUS + 
+ID "sum"
+LP ( 
+ID "x"
+DOT . 
+ID "right"
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "reflect"
+LP ( 
+ID "x"
+COLON : 
+ID "tree"
+RP ) 
+COLON : 
+ID "tree"
+LB { 
+IF 
+LP ( 
+ID "x"
+EQ == 
+LP ( 
+RP ) 
+RP ) 
+RETURN 
+LP ( 
+RP ) 
+ELSE 
+RETURN 
+LB { 
+ID "left"
+EQUAL 
+ID "reflect"
+LP ( 
+ID "x"
+DOT . 
+ID "right"
+RP ) 
+COMMA , 
+ID "info"
+EQUAL 
+ID "x"
+DOT . 
+ID "info"
+COMMA , 
+ID "right"
+EQUAL 
+ID "reflect"
+LP ( 
+ID "x"
+DOT . 
+ID "left"
+RP ) 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "x"
+DOT . 
+ID "left"
+EQUAL 
+LB { 
+ID "left"
+EQUAL 
+LP ( 
+RP ) 
+COMMA , 
+ID "info"
+EQUAL 
+INTEGER_LITERAL 2
+COMMA , 
+ID "right"
+EQUAL 
+LP ( 
+RP ) 
+RB } 
+SEMI ; 
+ID "x"
+DOT . 
+ID "right"
+EQUAL 
+LB { 
+ID "left"
+EQUAL 
+LP ( 
+RP ) 
+COMMA , 
+ID "info"
+EQUAL 
+INTEGER_LITERAL 4
+COMMA , 
+ID "right"
+EQUAL 
+LP ( 
+RP ) 
+RB } 
+SEMI ; 
+ID "x"
+DOT . 
+ID "left"
+DOT . 
+ID "right"
+EQUAL 
+LB { 
+ID "left"
+EQUAL 
+ID "x"
+DOT . 
+ID "right"
+COMMA , 
+ID "info"
+EQUAL 
+INTEGER_LITERAL 5
+COMMA , 
+ID "right"
+EQUAL 
+LP ( 
+RP ) 
+RB } 
+SEMI ; 
+ID "preorder"
+LP ( 
+ID "x"
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "SUM: "
+COMMA , 
+ID "sum"
+LP ( 
+ID "x"
+RP ) 
+RP ) 
+SEMI ; 
+ID "preorder"
+LP ( 
+ID "reflect"
+LP ( 
+ID "x"
+RP ) 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "SUM: "
+COMMA , 
+ID "sum"
+LP ( 
+ID "x"
+RP ) 
+RP ) 
+SEMI ; 
+********* file: tests/tsort.spl
+VAR 
+ID "N"
+EQUAL 
+INTEGER_LITERAL 9
+SEMI ; 
+TYPE 
+ID "btree"
+EQUAL 
+LB { 
+ID "k"
+COLON : 
+INT 
+COMMA , 
+ID "l"
+COLON : 
+ID "btree"
+COMMA , 
+ID "r"
+COLON : 
+ID "btree"
+RB } 
+SEMI ; 
+DEF 
+ID "insert"
+LP ( 
+ID "t"
+COLON : 
+ID "btree"
+COMMA , 
+ID "i"
+COLON : 
+INT 
+RP ) 
+COLON : 
+ID "btree"
+LB { 
+IF 
+LP ( 
+ID "t"
+EQ == 
+LP ( 
+RP ) 
+RP ) 
+RETURN 
+LB { 
+ID "k"
+EQUAL 
+ID "i"
+COMMA , 
+ID "l"
+EQUAL 
+LP ( 
+RP ) 
+COMMA , 
+ID "r"
+EQUAL 
+LP ( 
+RP ) 
+RB } 
+ELSE 
+IF 
+LP ( 
+ID "t"
+DOT . 
+ID "k"
+LEQ <= 
+ID "i"
+RP ) 
+RETURN 
+LB { 
+ID "k"
+EQUAL 
+ID "t"
+DOT . 
+ID "k"
+COMMA , 
+ID "l"
+EQUAL 
+ID "t"
+DOT . 
+ID "l"
+COMMA , 
+ID "r"
+EQUAL 
+ID "insert"
+LP ( 
+ID "t"
+DOT . 
+ID "r"
+COMMA , 
+ID "i"
+RP ) 
+RB } 
+ELSE 
+RETURN 
+LB { 
+ID "k"
+EQUAL 
+ID "t"
+DOT . 
+ID "k"
+COMMA , 
+ID "l"
+EQUAL 
+ID "insert"
+LP ( 
+ID "t"
+DOT . 
+ID "l"
+COMMA , 
+ID "i"
+RP ) 
+COMMA , 
+ID "r"
+EQUAL 
+ID "t"
+DOT . 
+ID "r"
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "readtree"
+LP ( 
+RP ) 
+COLON : 
+ID "btree"
+LB { 
+VAR 
+ID "i"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "t"
+COLON : 
+ID "btree"
+EQUAL 
+LP ( 
+RP ) 
+SEMI ; 
+VAR 
+ID "a"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "i"
+LT < 
+ID "N"
+RP ) 
+LB { 
+READ 
+LP ( 
+ID "a"
+RP ) 
+SEMI ; 
+ID "t"
+EQUAL 
+ID "insert"
+LP ( 
+ID "t"
+COMMA , 
+ID "a"
+RP ) 
+SEMI ; 
+ID "i"
+EQUAL 
+ID "i"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+RETURN 
+ID "t"
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "writetree"
+LP ( 
+ID "t"
+COLON : 
+ID "btree"
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "t"
+EQ == 
+LP ( 
+RP ) 
+RP ) 
+RETURN 
+ELSE 
+LB { 
+ID "writetree"
+LP ( 
+ID "t"
+DOT . 
+ID "l"
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+ID "t"
+DOT . 
+ID "k"
+RP ) 
+SEMI ; 
+ID "writetree"
+LP ( 
+ID "t"
+DOT . 
+ID "r"
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+VAR 
+ID "t"
+COLON : 
+ID "btree"
+EQUAL 
+LP ( 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Give "
+COMMA , 
+ID "N"
+COMMA , 
+STRING_LITERAL " numbers:"
+RP ) 
+SEMI ; 
+ID "t"
+EQUAL 
+ID "readtree"
+LP ( 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Result:"
+RP ) 
+SEMI ; 
+ID "writetree"
+LP ( 
+ID "t"
+RP ) 
+SEMI ; 
+Archanas-MacBook-Air:spl archana$ scala lib/spl.jar 1 tests/*.spl
+********* file: tests/2d_array.spl
+VAR 
+ID "a"
+EQUAL 
+LSB [ 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 2
+COMMA , 
+INTEGER_LITERAL 2
+RSB ] 
+SEMI ; 
+VAR 
+ID "b"
+EQUAL 
+LSB [ 
+ID "a"
+COMMA , 
+ID "a"
+RSB ] 
+SEMI ; 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+EQUAL 
+INTEGER_LITERAL 10
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[0][0] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[0][1] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[1][0] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[1][3] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 3
+RSB ] 
+RP ) 
+SEMI ; 
+********* file: tests/8q.spl
+VAR 
+ID "i"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "up"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "down"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "rows"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "x"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 8
+COMMA , 
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+DEF 
+ID "printv"
+LP ( 
+RP ) 
+LB { 
+PRINT 
+LP ( 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 2
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 3
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 4
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 5
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 6
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 7
+RSB ] 
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "queens"
+LP ( 
+ID "c"
+COLON : 
+INT 
+RP ) 
+LB { 
+VAR 
+ID "r"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "r"
+LT < 
+INTEGER_LITERAL 8
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+AND && 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+AND && 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+RP ) 
+LB { 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "x"
+LSB [ 
+ID "c"
+RSB ] 
+EQUAL 
+ID "r"
+SEMI ; 
+IF 
+LP ( 
+ID "c"
+EQ == 
+INTEGER_LITERAL 7
+RP ) 
+ID "printv"
+LP ( 
+RP ) 
+ELSE 
+ID "queens"
+LP ( 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "r"
+EQUAL 
+ID "r"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "queens"
+LP ( 
+INTEGER_LITERAL 0
+RP ) 
+SEMI ; 
+********* file: tests/factorial.spl
+VAR 
+ID "n"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+DEF 
+ID "fact"
+LP ( 
+ID "i"
+COLON : 
+INT 
+RP ) 
+COLON : 
+INT 
+LB { 
+IF 
+LP ( 
+ID "i"
+LEQ <= 
+INTEGER_LITERAL 0
+RP ) 
+RETURN 
+INTEGER_LITERAL 1
+ELSE 
+RETURN 
+ID "i"
+TIMES * 
+ID "fact"
+LP ( 
+ID "i"
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Enter a number:"
+RP ) 
+SEMI ; 
+READ 
+LP ( 
+ID "n"
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+ID "fact"
+LP ( 
+ID "n"
+RP ) 
+RP ) 
+SEMI ; 
+********* file: tests/fib.spl
+VAR 
+ID "N"
+EQUAL 
+INTEGER_LITERAL 40
+SEMI ; 
+VAR 
+ID "I"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "fibbs"
+EQUAL 
+ARRAY 
+LP ( 
+ID "N"
+COMMA , 
+INTEGER_LITERAL 0
+RP ) 
+SEMI ; 
+VAR 
+ID "j"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "n"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+DEF 
+ID "init"
+LP ( 
+ID "a"
+COLON : 
+ARRAY 
+LSB [ 
+INT 
+RSB ] 
+RP ) 
+LB { 
+VAR 
+ID "i"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 2
+SEMI ; 
+ID "a"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+EQUAL 
+INTEGER_LITERAL 1
+SEMI ; 
+ID "a"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+EQUAL 
+INTEGER_LITERAL 1
+SEMI ; 
+WHILE 
+LP ( 
+ID "i"
+LT < 
+ID "N"
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+LB { 
+ID "a"
+LSB [ 
+ID "i"
+RSB ] 
+EQUAL 
+ID "I"
+SEMI ; 
+ID "i"
+EQUAL 
+ID "i"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "fibb"
+LP ( 
+ID "i"
+COLON : 
+INT 
+RP ) 
+COLON : 
+INT 
+LB { 
+IF 
+LP ( 
+ID "fibbs"
+LSB [ 
+ID "i"
+RSB ] 
+EQ == 
+ID "I"
+RP ) 
+ID "fibbs"
+LSB [ 
+ID "i"
+RSB ] 
+EQUAL 
+ID "fibb"
+LP ( 
+ID "i"
+MINUS - 
+INTEGER_LITERAL 2
+RP ) 
+PLUS + 
+ID "fibb"
+LP ( 
+ID "i"
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+RETURN 
+ID "fibbs"
+LSB [ 
+ID "i"
+RSB ] 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "init"
+LP ( 
+ID "fibbs"
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Enter indices of eight fibbonacci numbers:"
+RP ) 
+SEMI ; 
+WHILE 
+LP ( 
+ID "j"
+LT < 
+INTEGER_LITERAL 8
+RP ) 
+LB { 
+READ 
+LP ( 
+ID "n"
+RP ) 
+SEMI ; 
+IF 
+LP ( 
+ID "n"
+GEQ >= 
+ID "N"
+RP ) 
+PRINT 
+LP ( 
+STRING_LITERAL "Maximum index is "
+COMMA , 
+ID "N"
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+ELSE 
+PRINT 
+LP ( 
+ID "n"
+COMMA , 
+STRING_LITERAL " "
+COMMA , 
+ID "fibb"
+LP ( 
+ID "n"
+RP ) 
+RP ) 
+SEMI ; 
+ID "j"
+EQUAL 
+ID "j"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+********* file: tests/hanoi.spl
+DEF 
+ID "hanoi"
+LP ( 
+ID "n"
+COLON : 
+INT 
+COMMA , 
+ID "src"
+COLON : 
+INT 
+COMMA , 
+ID "dst"
+COLON : 
+INT 
+COMMA , 
+ID "tmp"
+COLON : 
+INT 
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "n"
+GT > 
+INTEGER_LITERAL 0
+RP ) 
+LB { 
+ID "hanoi"
+LP ( 
+ID "n"
+MINUS - 
+INTEGER_LITERAL 1
+COMMA , 
+ID "src"
+COMMA , 
+ID "tmp"
+COMMA , 
+ID "dst"
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+ID "n"
+COMMA , 
+STRING_LITERAL " "
+COMMA , 
+ID "src"
+COMMA , 
+STRING_LITERAL " "
+COMMA , 
+ID "dst"
+RP ) 
+SEMI ; 
+ID "hanoi"
+LP ( 
+ID "n"
+MINUS - 
+INTEGER_LITERAL 1
+COMMA , 
+ID "tmp"
+COMMA , 
+ID "dst"
+COMMA , 
+ID "src"
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "hanoi"
+LP ( 
+INTEGER_LITERAL 5
+COMMA , 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 2
+COMMA , 
+INTEGER_LITERAL 3
+RP ) 
+SEMI ; 
+********* file: tests/hello.spl
+PRINT 
+LP ( 
+STRING_LITERAL "Hello World!"
+RP ) 
+SEMI ; 
+********* file: tests/prime.spl
+VAR 
+ID "size"
+EQUAL 
+INTEGER_LITERAL 8190
+SEMI ; 
+VAR 
+ID "IsPrime"
+EQUAL 
+ARRAY 
+LP ( 
+ID "size"
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "i"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "j"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "k"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "prime"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "count"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+DEF 
+ID "mark"
+LP ( 
+ID "x"
+COLON : 
+INT 
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "x"
+LT < 
+ID "size"
+RP ) 
+LB { 
+ID "IsPrime"
+LSB [ 
+ID "x"
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "x"
+EQUAL 
+ID "x"
+PLUS + 
+ID "prime"
+SEMI ; 
+ID "mark"
+LP ( 
+ID "x"
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+WHILE 
+LP ( 
+ID "j"
+LT < 
+ID "size"
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "IsPrime"
+LSB [ 
+ID "j"
+RSB ] 
+EQ == 
+TRUE 
+RP ) 
+LB { 
+ID "prime"
+EQUAL 
+ID "j"
+PLUS + 
+ID "j"
+PLUS + 
+INTEGER_LITERAL 3
+SEMI ; 
+ID "k"
+EQUAL 
+ID "j"
+PLUS + 
+ID "prime"
+SEMI ; 
+ID "mark"
+LP ( 
+ID "k"
+RP ) 
+SEMI ; 
+ID "count"
+EQUAL 
+ID "count"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+ID "j"
+EQUAL 
+ID "j"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "The number of prime numbers less than "
+COMMA , 
+ID "size"
+COMMA , 
+STRING_LITERAL " is "
+COMMA , 
+ID "count"
+RP ) 
+SEMI ; 
+********* file: tests/sort.spl
+VAR 
+ID "N"
+EQUAL 
+INTEGER_LITERAL 10
+SEMI ; 
+VAR 
+ID "a"
+EQUAL 
+ARRAY 
+LP ( 
+ID "N"
+COMMA , 
+INTEGER_LITERAL 0
+RP ) 
+SEMI ; 
+DEF 
+ID "quicksort"
+LP ( 
+ID "a"
+COLON : 
+ARRAY 
+LSB [ 
+INT 
+RSB ] 
+COMMA , 
+ID "m"
+COLON : 
+INT 
+COMMA , 
+ID "n"
+COLON : 
+INT 
+RP ) 
+LB { 
+VAR 
+ID "i"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+DEF 
+ID "exchange"
+LP ( 
+ID "p"
+COLON : 
+INT 
+COMMA , 
+ID "q"
+COLON : 
+INT 
+RP ) 
+LB { 
+VAR 
+ID "x"
+EQUAL 
+ID "a"
+LSB [ 
+ID "p"
+RSB ] 
+SEMI ; 
+ID "a"
+LSB [ 
+ID "p"
+RSB ] 
+EQUAL 
+ID "a"
+LSB [ 
+ID "q"
+RSB ] 
+SEMI ; 
+ID "a"
+LSB [ 
+ID "q"
+RSB ] 
+EQUAL 
+ID "x"
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "partition"
+LP ( 
+ID "y"
+COLON : 
+INT 
+COMMA , 
+ID "z"
+COLON : 
+INT 
+RP ) 
+COLON : 
+INT 
+LB { 
+VAR 
+ID "i"
+EQUAL 
+ID "y"
+SEMI ; 
+VAR 
+ID "j"
+EQUAL 
+ID "z"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+DEF 
+ID "meet"
+LP ( 
+RP ) 
+LB { 
+DEF 
+ID "up"
+LP ( 
+RP ) 
+LB { 
+ID "i"
+EQUAL 
+ID "i"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+IF 
+LP ( 
+ID "i"
+LT < 
+ID "N"
+RP ) 
+IF 
+LP ( 
+ID "a"
+LSB [ 
+ID "i"
+RSB ] 
+LT < 
+ID "a"
+LSB [ 
+ID "y"
+RSB ] 
+RP ) 
+ID "up"
+LP ( 
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "down"
+LP ( 
+RP ) 
+LB { 
+ID "j"
+EQUAL 
+ID "j"
+MINUS - 
+INTEGER_LITERAL 1
+SEMI ; 
+IF 
+LP ( 
+ID "a"
+LSB [ 
+ID "j"
+RSB ] 
+GT > 
+ID "a"
+LSB [ 
+ID "y"
+RSB ] 
+RP ) 
+ID "down"
+LP ( 
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+IF 
+LP ( 
+ID "i"
+LT < 
+ID "j"
+RP ) 
+LB { 
+ID "up"
+LP ( 
+RP ) 
+SEMI ; 
+ID "down"
+LP ( 
+RP ) 
+SEMI ; 
+IF 
+LP ( 
+ID "i"
+LT < 
+ID "j"
+RP ) 
+ID "exchange"
+LP ( 
+ID "i"
+COMMA , 
+ID "j"
+RP ) 
+SEMI ; 
+ID "meet"
+LP ( 
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "meet"
+LP ( 
+RP ) 
+SEMI ; 
+ID "exchange"
+LP ( 
+ID "y"
+COMMA , 
+ID "j"
+RP ) 
+SEMI ; 
+RETURN 
+ID "j"
+SEMI ; 
+RB } 
+SEMI ; 
+IF 
+LP ( 
+ID "n"
+GT > 
+ID "m"
+RP ) 
+LB { 
+ID "i"
+EQUAL 
+ID "partition"
+LP ( 
+ID "m"
+COMMA , 
+ID "n"
+RP ) 
+SEMI ; 
+ID "quicksort"
+LP ( 
+ID "a"
+COMMA , 
+ID "m"
+COMMA , 
+ID "i"
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+ID "quicksort"
+LP ( 
+ID "a"
+COMMA , 
+ID "i"
+PLUS + 
+INTEGER_LITERAL 1
+COMMA , 
+ID "n"
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "readarray"
+LP ( 
+RP ) 
+LB { 
+VAR 
+ID "i"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "i"
+LT < 
+ID "N"
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+LB { 
+READ 
+LP ( 
+ID "a"
+LSB [ 
+ID "i"
+RSB ] 
+RP ) 
+SEMI ; 
+ID "i"
+EQUAL 
+ID "i"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+ID "a"
+LSB [ 
+ID "i"
+RSB ] 
+EQUAL 
+MINUS - 
+INTEGER_LITERAL 1000
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "writearray"
+LP ( 
+RP ) 
+LB { 
+VAR 
+ID "i"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "i"
+LT < 
+ID "N"
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+LB { 
+PRINT 
+LP ( 
+ID "a"
+LSB [ 
+ID "i"
+RSB ] 
+RP ) 
+SEMI ; 
+ID "i"
+EQUAL 
+ID "i"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Give 9 integers:"
+RP ) 
+SEMI ; 
+ID "readarray"
+LP ( 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "The sorted numbers are:"
+RP ) 
+SEMI ; 
+ID "quicksort"
+LP ( 
+ID "a"
+COMMA , 
+INTEGER_LITERAL 0
+COMMA , 
+ID "N"
+MINUS - 
+INTEGER_LITERAL 2
+RP ) 
+SEMI ; 
+ID "writearray"
+LP ( 
+RP ) 
+SEMI ; 
+********* file: tests/square.spl
+VAR 
+ID "SIZE"
+EQUAL 
+INTEGER_LITERAL 5
+SEMI ; 
+VAR 
+ID "I"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "J"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "K"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "CELL"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "B"
+EQUAL 
+ARRAY 
+LP ( 
+ID "SIZE"
+COMMA , 
+INTEGER_LITERAL 0
+RP ) 
+SEMI ; 
+VAR 
+ID "C"
+EQUAL 
+ARRAY 
+LP ( 
+ID "SIZE"
+COMMA , 
+ARRAY 
+LP ( 
+ID "SIZE"
+COMMA , 
+INTEGER_LITERAL 0
+RP ) 
+RP ) 
+SEMI ; 
+VAR 
+ID "D"
+EQUAL 
+ARRAY 
+LP ( 
+ID "SIZE"
+COMMA , 
+ARRAY 
+LP ( 
+ID "SIZE"
+COMMA , 
+INTEGER_LITERAL 0
+RP ) 
+RP ) 
+SEMI ; 
+ID "I"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "I"
+LT < 
+ID "SIZE"
+RP ) 
+LB { 
+ID "C"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+ID "I"
+RSB ] 
+EQUAL 
+ID "I"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+ID "I"
+EQUAL 
+ID "I"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+ID "I"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "I"
+LT < 
+ID "SIZE"
+RP ) 
+LB { 
+ID "J"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "J"
+LT < 
+ID "SIZE"
+RP ) 
+LB { 
+ID "CELL"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+ID "K"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "K"
+LT < 
+ID "SIZE"
+RP ) 
+LB { 
+ID "CELL"
+EQUAL 
+ID "CELL"
+PLUS + 
+ID "C"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+ID "K"
+RSB ] 
+TIMES * 
+ID "C"
+LSB [ 
+ID "K"
+RSB ] 
+LSB [ 
+ID "J"
+RSB ] 
+SEMI ; 
+ID "K"
+EQUAL 
+ID "K"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+ID "D"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+ID "J"
+RSB ] 
+EQUAL 
+ID "CELL"
+SEMI ; 
+ID "J"
+EQUAL 
+ID "J"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+ID "I"
+EQUAL 
+ID "I"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Input matrix"
+RP ) 
+SEMI ; 
+ID "I"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "I"
+LT < 
+ID "SIZE"
+RP ) 
+LB { 
+PRINT 
+LP ( 
+ID "C"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "C"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "C"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 2
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "C"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 3
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "C"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 4
+RSB ] 
+RP ) 
+SEMI ; 
+ID "I"
+EQUAL 
+ID "I"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+PRINT 
+LP ( 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Input matrix squared"
+RP ) 
+SEMI ; 
+ID "I"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "I"
+LT < 
+ID "SIZE"
+RP ) 
+LB { 
+PRINT 
+LP ( 
+ID "D"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "D"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "D"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 2
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "D"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 3
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "D"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 4
+RSB ] 
+RP ) 
+SEMI ; 
+ID "I"
+EQUAL 
+ID "I"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+********* file: tests/test1.spl
+VAR 
+ID "x"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 6
+SEMI ; 
+VAR 
+ID "y"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 3
+SEMI ; 
+DEF 
+ID "f"
+LP ( 
+ID "a"
+COLON : 
+INT 
+RP ) 
+LB { 
+VAR 
+ID "i"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 2
+SEMI ; 
+PRINT 
+LP ( 
+ID "a"
+RP ) 
+SEMI ; 
+FOR 
+LP ( 
+ID "k"
+EQUAL 
+INTEGER_LITERAL 1
+TO 
+ID "a"
+RP ) 
+PRINT 
+LP ( 
+ID "k"
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "f"
+LP ( 
+ID "x"
+PLUS + 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+ID "x"
+PLUS + 
+ID "y"
+TIMES * 
+INTEGER_LITERAL 2
+RP ) 
+SEMI ; 
+********* file: tests/test2.spl
+VAR 
+ID "x"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Input: "
+RP ) 
+SEMI ; 
+READ 
+LP ( 
+ID "x"
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+INTEGER_LITERAL 1
+PLUS + 
+ID "x"
+TIMES * 
+INTEGER_LITERAL 2
+RP ) 
+SEMI ; 
+********* file: tests/test3.spl
+TYPE 
+ID "IARRAY"
+EQUAL 
+ARRAY 
+LSB [ 
+INT 
+RSB ] 
+SEMI ; 
+VAR 
+ID "a"
+EQUAL 
+LSB [ 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 2
+COMMA , 
+INTEGER_LITERAL 5
+COMMA , 
+INTEGER_LITERAL 6
+COMMA , 
+INTEGER_LITERAL 6
+COMMA , 
+INTEGER_LITERAL 6
+COMMA , 
+INTEGER_LITERAL 6
+COMMA , 
+INTEGER_LITERAL 100
+RSB ] 
+SEMI ; 
+VAR 
+ID "k"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+FOR 
+LP ( 
+ID "i"
+EQUAL 
+INTEGER_LITERAL 0
+TO 
+INTEGER_LITERAL 8
+RP ) 
+PRINT 
+LP ( 
+STRING_LITERAL "a["
+COMMA , 
+ID "i"
+COMMA , 
+STRING_LITERAL "] is "
+COMMA , 
+ID "a"
+LSB [ 
+ID "i"
+RSB ] 
+RP ) 
+SEMI ; 
+WHILE 
+LP ( 
+ID "k"
+LT < 
+INTEGER_LITERAL 12
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "k"
+LT < 
+INTEGER_LITERAL 9
+AND && 
+ID "a"
+LSB [ 
+ID "k"
+RSB ] 
+LT < 
+INTEGER_LITERAL 10
+RP ) 
+PRINT 
+LP ( 
+ID "k"
+COMMA , 
+STRING_LITERAL " "
+COMMA , 
+ID "a"
+LSB [ 
+ID "k"
+RSB ] 
+RP ) 
+SEMI ; 
+ID "k"
+EQUAL 
+ID "k"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+********* file: tests/test4.spl
+TYPE 
+ID "rec"
+EQUAL 
+LB { 
+ID "a"
+COLON : 
+INT 
+COMMA , 
+ID "b"
+COLON : 
+INT 
+RB } 
+SEMI ; 
+VAR 
+ID "x"
+EQUAL 
+LB { 
+ID "a"
+EQUAL 
+INTEGER_LITERAL 23
+COMMA , 
+ID "b"
+EQUAL 
+INTEGER_LITERAL 67
+RB } 
+SEMI ; 
+ID "x"
+DOT . 
+ID "a"
+EQUAL 
+INTEGER_LITERAL 89
+SEMI ; 
+PRINT 
+LP ( 
+ID "x"
+DOT . 
+ID "a"
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "x"
+DOT . 
+ID "b"
+RP ) 
+SEMI ; 
+********* file: tests/tree.spl
+TYPE 
+ID "tree"
+EQUAL 
+LB { 
+ID "left"
+COLON : 
+ID "tree"
+COMMA , 
+ID "info"
+COLON : 
+INT 
+COMMA , 
+ID "right"
+COLON : 
+ID "tree"
+RB } 
+SEMI ; 
+VAR 
+ID "x"
+COLON : 
+ID "tree"
+EQUAL 
+LB { 
+ID "left"
+EQUAL 
+LP ( 
+RP ) 
+COMMA , 
+ID "info"
+EQUAL 
+INTEGER_LITERAL 3
+COMMA , 
+ID "right"
+EQUAL 
+LP ( 
+RP ) 
+RB } 
+SEMI ; 
+DEF 
+ID "preorder"
+LP ( 
+ID "x"
+COLON : 
+ID "tree"
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "x"
+LT < 
+GT > 
+LP ( 
+RP ) 
+RP ) 
+LB { 
+PRINT 
+LP ( 
+ID "x"
+DOT . 
+ID "info"
+RP ) 
+SEMI ; 
+ID "preorder"
+LP ( 
+ID "x"
+DOT . 
+ID "left"
+RP ) 
+SEMI ; 
+ID "preorder"
+LP ( 
+ID "x"
+DOT . 
+ID "right"
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "sum"
+LP ( 
+ID "x"
+COLON : 
+ID "tree"
+RP ) 
+COLON : 
+INT 
+LB { 
+IF 
+LP ( 
+ID "x"
+EQ == 
+LP ( 
+RP ) 
+RP ) 
+RETURN 
+INTEGER_LITERAL 0
+ELSE 
+RETURN 
+ID "sum"
+LP ( 
+ID "x"
+DOT . 
+ID "left"
+RP ) 
+PLUS + 
+ID "x"
+DOT . 
+ID "info"
+PLUS + 
+ID "sum"
+LP ( 
+ID "x"
+DOT . 
+ID "right"
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "reflect"
+LP ( 
+ID "x"
+COLON : 
+ID "tree"
+RP ) 
+COLON : 
+ID "tree"
+LB { 
+IF 
+LP ( 
+ID "x"
+EQ == 
+LP ( 
+RP ) 
+RP ) 
+RETURN 
+LP ( 
+RP ) 
+ELSE 
+RETURN 
+LB { 
+ID "left"
+EQUAL 
+ID "reflect"
+LP ( 
+ID "x"
+DOT . 
+ID "right"
+RP ) 
+COMMA , 
+ID "info"
+EQUAL 
+ID "x"
+DOT . 
+ID "info"
+COMMA , 
+ID "right"
+EQUAL 
+ID "reflect"
+LP ( 
+ID "x"
+DOT . 
+ID "left"
+RP ) 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "x"
+DOT . 
+ID "left"
+EQUAL 
+LB { 
+ID "left"
+EQUAL 
+LP ( 
+RP ) 
+COMMA , 
+ID "info"
+EQUAL 
+INTEGER_LITERAL 2
+COMMA , 
+ID "right"
+EQUAL 
+LP ( 
+RP ) 
+RB } 
+SEMI ; 
+ID "x"
+DOT . 
+ID "right"
+EQUAL 
+LB { 
+ID "left"
+EQUAL 
+LP ( 
+RP ) 
+COMMA , 
+ID "info"
+EQUAL 
+INTEGER_LITERAL 4
+COMMA , 
+ID "right"
+EQUAL 
+LP ( 
+RP ) 
+RB } 
+SEMI ; 
+ID "x"
+DOT . 
+ID "left"
+DOT . 
+ID "right"
+EQUAL 
+LB { 
+ID "left"
+EQUAL 
+ID "x"
+DOT . 
+ID "right"
+COMMA , 
+ID "info"
+EQUAL 
+INTEGER_LITERAL 5
+COMMA , 
+ID "right"
+EQUAL 
+LP ( 
+RP ) 
+RB } 
+SEMI ; 
+ID "preorder"
+LP ( 
+ID "x"
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "SUM: "
+COMMA , 
+ID "sum"
+LP ( 
+ID "x"
+RP ) 
+RP ) 
+SEMI ; 
+ID "preorder"
+LP ( 
+ID "reflect"
+LP ( 
+ID "x"
+RP ) 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "SUM: "
+COMMA , 
+ID "sum"
+LP ( 
+ID "x"
+RP ) 
+RP ) 
+SEMI ; 
+********* file: tests/tsort.spl
+VAR 
+ID "N"
+EQUAL 
+INTEGER_LITERAL 9
+SEMI ; 
+TYPE 
+ID "btree"
+EQUAL 
+LB { 
+ID "k"
+COLON : 
+INT 
+COMMA , 
+ID "l"
+COLON : 
+ID "btree"
+COMMA , 
+ID "r"
+COLON : 
+ID "btree"
+RB } 
+SEMI ; 
+DEF 
+ID "insert"
+LP ( 
+ID "t"
+COLON : 
+ID "btree"
+COMMA , 
+ID "i"
+COLON : 
+INT 
+RP ) 
+COLON : 
+ID "btree"
+LB { 
+IF 
+LP ( 
+ID "t"
+EQ == 
+LP ( 
+RP ) 
+RP ) 
+RETURN 
+LB { 
+ID "k"
+EQUAL 
+ID "i"
+COMMA , 
+ID "l"
+EQUAL 
+LP ( 
+RP ) 
+COMMA , 
+ID "r"
+EQUAL 
+LP ( 
+RP ) 
+RB } 
+ELSE 
+IF 
+LP ( 
+ID "t"
+DOT . 
+ID "k"
+LEQ <= 
+ID "i"
+RP ) 
+RETURN 
+LB { 
+ID "k"
+EQUAL 
+ID "t"
+DOT . 
+ID "k"
+COMMA , 
+ID "l"
+EQUAL 
+ID "t"
+DOT . 
+ID "l"
+COMMA , 
+ID "r"
+EQUAL 
+ID "insert"
+LP ( 
+ID "t"
+DOT . 
+ID "r"
+COMMA , 
+ID "i"
+RP ) 
+RB } 
+ELSE 
+RETURN 
+LB { 
+ID "k"
+EQUAL 
+ID "t"
+DOT . 
+ID "k"
+COMMA , 
+ID "l"
+EQUAL 
+ID "insert"
+LP ( 
+ID "t"
+DOT . 
+ID "l"
+COMMA , 
+ID "i"
+RP ) 
+COMMA , 
+ID "r"
+EQUAL 
+ID "t"
+DOT . 
+ID "r"
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "readtree"
+LP ( 
+RP ) 
+COLON : 
+ID "btree"
+LB { 
+VAR 
+ID "i"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "t"
+COLON : 
+ID "btree"
+EQUAL 
+LP ( 
+RP ) 
+SEMI ; 
+VAR 
+ID "a"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "i"
+LT < 
+ID "N"
+RP ) 
+LB { 
+READ 
+LP ( 
+ID "a"
+RP ) 
+SEMI ; 
+ID "t"
+EQUAL 
+ID "insert"
+LP ( 
+ID "t"
+COMMA , 
+ID "a"
+RP ) 
+SEMI ; 
+ID "i"
+EQUAL 
+ID "i"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+RETURN 
+ID "t"
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "writetree"
+LP ( 
+ID "t"
+COLON : 
+ID "btree"
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "t"
+EQ == 
+LP ( 
+RP ) 
+RP ) 
+RETURN 
+ELSE 
+LB { 
+ID "writetree"
+LP ( 
+ID "t"
+DOT . 
+ID "l"
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+ID "t"
+DOT . 
+ID "k"
+RP ) 
+SEMI ; 
+ID "writetree"
+LP ( 
+ID "t"
+DOT . 
+ID "r"
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+VAR 
+ID "t"
+COLON : 
+ID "btree"
+EQUAL 
+LP ( 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Give "
+COMMA , 
+ID "N"
+COMMA , 
+STRING_LITERAL " numbers:"
+RP ) 
+SEMI ; 
+ID "t"
+EQUAL 
+ID "readtree"
+LP ( 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Result:"
+RP ) 
+SEMI ; 
+ID "writetree"
+LP ( 
+ID "t"
+RP ) 
+SEMI ; 
+Archanas-MacBook-Air:spl archana$ clear
+
+Archanas-MacBook-Air:spl archana$ scala lib/spl.jar 1 tests/*.spl
+********* file: tests/2d_array.spl
+VAR 
+ID "a"
+EQUAL 
+LSB [ 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 2
+COMMA , 
+INTEGER_LITERAL 2
+RSB ] 
+SEMI ; 
+VAR 
+ID "b"
+EQUAL 
+LSB [ 
+ID "a"
+COMMA , 
+ID "a"
+RSB ] 
+SEMI ; 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+EQUAL 
+INTEGER_LITERAL 10
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[0][0] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[0][1] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[1][0] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "b[1][3] is "
+COMMA , 
+ID "b"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 3
+RSB ] 
+RP ) 
+SEMI ; 
+********* file: tests/8q.spl
+VAR 
+ID "i"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "up"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "down"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "rows"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 15
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "x"
+EQUAL 
+ARRAY 
+LP ( 
+INTEGER_LITERAL 8
+COMMA , 
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+DEF 
+ID "printv"
+LP ( 
+RP ) 
+LB { 
+PRINT 
+LP ( 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 2
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 3
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 4
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 5
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 6
+RSB ] 
+COMMA , 
+ID "x"
+LSB [ 
+INTEGER_LITERAL 7
+RSB ] 
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "queens"
+LP ( 
+ID "c"
+COLON : 
+INT 
+RP ) 
+LB { 
+VAR 
+ID "r"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "r"
+LT < 
+INTEGER_LITERAL 8
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+AND && 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+AND && 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+RP ) 
+LB { 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "x"
+LSB [ 
+ID "c"
+RSB ] 
+EQUAL 
+ID "r"
+SEMI ; 
+IF 
+LP ( 
+ID "c"
+EQ == 
+INTEGER_LITERAL 7
+RP ) 
+ID "printv"
+LP ( 
+RP ) 
+ELSE 
+ID "queens"
+LP ( 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+ID "rows"
+LSB [ 
+ID "r"
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+ID "up"
+LSB [ 
+ID "r"
+MINUS - 
+ID "c"
+PLUS + 
+INTEGER_LITERAL 7
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+ID "down"
+LSB [ 
+ID "r"
+PLUS + 
+ID "c"
+RSB ] 
+EQUAL 
+TRUE 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "r"
+EQUAL 
+ID "r"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "queens"
+LP ( 
+INTEGER_LITERAL 0
+RP ) 
+SEMI ; 
+********* file: tests/factorial.spl
+VAR 
+ID "n"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+DEF 
+ID "fact"
+LP ( 
+ID "i"
+COLON : 
+INT 
+RP ) 
+COLON : 
+INT 
+LB { 
+IF 
+LP ( 
+ID "i"
+LEQ <= 
+INTEGER_LITERAL 0
+RP ) 
+RETURN 
+INTEGER_LITERAL 1
+ELSE 
+RETURN 
+ID "i"
+TIMES * 
+ID "fact"
+LP ( 
+ID "i"
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Enter a number:"
+RP ) 
+SEMI ; 
+READ 
+LP ( 
+ID "n"
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+ID "fact"
+LP ( 
+ID "n"
+RP ) 
+RP ) 
+SEMI ; 
+********* file: tests/fib.spl
+VAR 
+ID "N"
+EQUAL 
+INTEGER_LITERAL 40
+SEMI ; 
+VAR 
+ID "I"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "fibbs"
+EQUAL 
+ARRAY 
+LP ( 
+ID "N"
+COMMA , 
+INTEGER_LITERAL 0
+RP ) 
+SEMI ; 
+VAR 
+ID "j"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "n"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+DEF 
+ID "init"
+LP ( 
+ID "a"
+COLON : 
+ARRAY 
+LSB [ 
+INT 
+RSB ] 
+RP ) 
+LB { 
+VAR 
+ID "i"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 2
+SEMI ; 
+ID "a"
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+EQUAL 
+INTEGER_LITERAL 1
+SEMI ; 
+ID "a"
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+EQUAL 
+INTEGER_LITERAL 1
+SEMI ; 
+WHILE 
+LP ( 
+ID "i"
+LT < 
+ID "N"
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+LB { 
+ID "a"
+LSB [ 
+ID "i"
+RSB ] 
+EQUAL 
+ID "I"
+SEMI ; 
+ID "i"
+EQUAL 
+ID "i"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "fibb"
+LP ( 
+ID "i"
+COLON : 
+INT 
+RP ) 
+COLON : 
+INT 
+LB { 
+IF 
+LP ( 
+ID "fibbs"
+LSB [ 
+ID "i"
+RSB ] 
+EQ == 
+ID "I"
+RP ) 
+ID "fibbs"
+LSB [ 
+ID "i"
+RSB ] 
+EQUAL 
+ID "fibb"
+LP ( 
+ID "i"
+MINUS - 
+INTEGER_LITERAL 2
+RP ) 
+PLUS + 
+ID "fibb"
+LP ( 
+ID "i"
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+RETURN 
+ID "fibbs"
+LSB [ 
+ID "i"
+RSB ] 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "init"
+LP ( 
+ID "fibbs"
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Enter indices of eight fibbonacci numbers:"
+RP ) 
+SEMI ; 
+WHILE 
+LP ( 
+ID "j"
+LT < 
+INTEGER_LITERAL 8
+RP ) 
+LB { 
+READ 
+LP ( 
+ID "n"
+RP ) 
+SEMI ; 
+IF 
+LP ( 
+ID "n"
+GEQ >= 
+ID "N"
+RP ) 
+PRINT 
+LP ( 
+STRING_LITERAL "Maximum index is "
+COMMA , 
+ID "N"
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+ELSE 
+PRINT 
+LP ( 
+ID "n"
+COMMA , 
+STRING_LITERAL " "
+COMMA , 
+ID "fibb"
+LP ( 
+ID "n"
+RP ) 
+RP ) 
+SEMI ; 
+ID "j"
+EQUAL 
+ID "j"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+********* file: tests/hanoi.spl
+DEF 
+ID "hanoi"
+LP ( 
+ID "n"
+COLON : 
+INT 
+COMMA , 
+ID "src"
+COLON : 
+INT 
+COMMA , 
+ID "dst"
+COLON : 
+INT 
+COMMA , 
+ID "tmp"
+COLON : 
+INT 
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "n"
+GT > 
+INTEGER_LITERAL 0
+RP ) 
+LB { 
+ID "hanoi"
+LP ( 
+ID "n"
+MINUS - 
+INTEGER_LITERAL 1
+COMMA , 
+ID "src"
+COMMA , 
+ID "tmp"
+COMMA , 
+ID "dst"
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+ID "n"
+COMMA , 
+STRING_LITERAL " "
+COMMA , 
+ID "src"
+COMMA , 
+STRING_LITERAL " "
+COMMA , 
+ID "dst"
+RP ) 
+SEMI ; 
+ID "hanoi"
+LP ( 
+ID "n"
+MINUS - 
+INTEGER_LITERAL 1
+COMMA , 
+ID "tmp"
+COMMA , 
+ID "dst"
+COMMA , 
+ID "src"
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "hanoi"
+LP ( 
+INTEGER_LITERAL 5
+COMMA , 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 2
+COMMA , 
+INTEGER_LITERAL 3
+RP ) 
+SEMI ; 
+********* file: tests/hello.spl
+PRINT 
+LP ( 
+STRING_LITERAL "Hello World!"
+RP ) 
+SEMI ; 
+********* file: tests/prime.spl
+VAR 
+ID "size"
+EQUAL 
+INTEGER_LITERAL 8190
+SEMI ; 
+VAR 
+ID "IsPrime"
+EQUAL 
+ARRAY 
+LP ( 
+ID "size"
+COMMA , 
+TRUE 
+RP ) 
+SEMI ; 
+VAR 
+ID "i"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "j"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "k"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "prime"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "count"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+DEF 
+ID "mark"
+LP ( 
+ID "x"
+COLON : 
+INT 
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "x"
+LT < 
+ID "size"
+RP ) 
+LB { 
+ID "IsPrime"
+LSB [ 
+ID "x"
+RSB ] 
+EQUAL 
+FALSE 
+SEMI ; 
+ID "x"
+EQUAL 
+ID "x"
+PLUS + 
+ID "prime"
+SEMI ; 
+ID "mark"
+LP ( 
+ID "x"
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+WHILE 
+LP ( 
+ID "j"
+LT < 
+ID "size"
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "IsPrime"
+LSB [ 
+ID "j"
+RSB ] 
+EQ == 
+TRUE 
+RP ) 
+LB { 
+ID "prime"
+EQUAL 
+ID "j"
+PLUS + 
+ID "j"
+PLUS + 
+INTEGER_LITERAL 3
+SEMI ; 
+ID "k"
+EQUAL 
+ID "j"
+PLUS + 
+ID "prime"
+SEMI ; 
+ID "mark"
+LP ( 
+ID "k"
+RP ) 
+SEMI ; 
+ID "count"
+EQUAL 
+ID "count"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+ID "j"
+EQUAL 
+ID "j"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "The number of prime numbers less than "
+COMMA , 
+ID "size"
+COMMA , 
+STRING_LITERAL " is "
+COMMA , 
+ID "count"
+RP ) 
+SEMI ; 
+********* file: tests/sort.spl
+VAR 
+ID "N"
+EQUAL 
+INTEGER_LITERAL 10
+SEMI ; 
+VAR 
+ID "a"
+EQUAL 
+ARRAY 
+LP ( 
+ID "N"
+COMMA , 
+INTEGER_LITERAL 0
+RP ) 
+SEMI ; 
+DEF 
+ID "quicksort"
+LP ( 
+ID "a"
+COLON : 
+ARRAY 
+LSB [ 
+INT 
+RSB ] 
+COMMA , 
+ID "m"
+COLON : 
+INT 
+COMMA , 
+ID "n"
+COLON : 
+INT 
+RP ) 
+LB { 
+VAR 
+ID "i"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+DEF 
+ID "exchange"
+LP ( 
+ID "p"
+COLON : 
+INT 
+COMMA , 
+ID "q"
+COLON : 
+INT 
+RP ) 
+LB { 
+VAR 
+ID "x"
+EQUAL 
+ID "a"
+LSB [ 
+ID "p"
+RSB ] 
+SEMI ; 
+ID "a"
+LSB [ 
+ID "p"
+RSB ] 
+EQUAL 
+ID "a"
+LSB [ 
+ID "q"
+RSB ] 
+SEMI ; 
+ID "a"
+LSB [ 
+ID "q"
+RSB ] 
+EQUAL 
+ID "x"
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "partition"
+LP ( 
+ID "y"
+COLON : 
+INT 
+COMMA , 
+ID "z"
+COLON : 
+INT 
+RP ) 
+COLON : 
+INT 
+LB { 
+VAR 
+ID "i"
+EQUAL 
+ID "y"
+SEMI ; 
+VAR 
+ID "j"
+EQUAL 
+ID "z"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+DEF 
+ID "meet"
+LP ( 
+RP ) 
+LB { 
+DEF 
+ID "up"
+LP ( 
+RP ) 
+LB { 
+ID "i"
+EQUAL 
+ID "i"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+IF 
+LP ( 
+ID "i"
+LT < 
+ID "N"
+RP ) 
+IF 
+LP ( 
+ID "a"
+LSB [ 
+ID "i"
+RSB ] 
+LT < 
+ID "a"
+LSB [ 
+ID "y"
+RSB ] 
+RP ) 
+ID "up"
+LP ( 
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "down"
+LP ( 
+RP ) 
+LB { 
+ID "j"
+EQUAL 
+ID "j"
+MINUS - 
+INTEGER_LITERAL 1
+SEMI ; 
+IF 
+LP ( 
+ID "a"
+LSB [ 
+ID "j"
+RSB ] 
+GT > 
+ID "a"
+LSB [ 
+ID "y"
+RSB ] 
+RP ) 
+ID "down"
+LP ( 
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+IF 
+LP ( 
+ID "i"
+LT < 
+ID "j"
+RP ) 
+LB { 
+ID "up"
+LP ( 
+RP ) 
+SEMI ; 
+ID "down"
+LP ( 
+RP ) 
+SEMI ; 
+IF 
+LP ( 
+ID "i"
+LT < 
+ID "j"
+RP ) 
+ID "exchange"
+LP ( 
+ID "i"
+COMMA , 
+ID "j"
+RP ) 
+SEMI ; 
+ID "meet"
+LP ( 
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "meet"
+LP ( 
+RP ) 
+SEMI ; 
+ID "exchange"
+LP ( 
+ID "y"
+COMMA , 
+ID "j"
+RP ) 
+SEMI ; 
+RETURN 
+ID "j"
+SEMI ; 
+RB } 
+SEMI ; 
+IF 
+LP ( 
+ID "n"
+GT > 
+ID "m"
+RP ) 
+LB { 
+ID "i"
+EQUAL 
+ID "partition"
+LP ( 
+ID "m"
+COMMA , 
+ID "n"
+RP ) 
+SEMI ; 
+ID "quicksort"
+LP ( 
+ID "a"
+COMMA , 
+ID "m"
+COMMA , 
+ID "i"
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+ID "quicksort"
+LP ( 
+ID "a"
+COMMA , 
+ID "i"
+PLUS + 
+INTEGER_LITERAL 1
+COMMA , 
+ID "n"
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "readarray"
+LP ( 
+RP ) 
+LB { 
+VAR 
+ID "i"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "i"
+LT < 
+ID "N"
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+LB { 
+READ 
+LP ( 
+ID "a"
+LSB [ 
+ID "i"
+RSB ] 
+RP ) 
+SEMI ; 
+ID "i"
+EQUAL 
+ID "i"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+ID "a"
+LSB [ 
+ID "i"
+RSB ] 
+EQUAL 
+MINUS - 
+INTEGER_LITERAL 1000
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "writearray"
+LP ( 
+RP ) 
+LB { 
+VAR 
+ID "i"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "i"
+LT < 
+ID "N"
+MINUS - 
+INTEGER_LITERAL 1
+RP ) 
+LB { 
+PRINT 
+LP ( 
+ID "a"
+LSB [ 
+ID "i"
+RSB ] 
+RP ) 
+SEMI ; 
+ID "i"
+EQUAL 
+ID "i"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Give 9 integers:"
+RP ) 
+SEMI ; 
+ID "readarray"
+LP ( 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "The sorted numbers are:"
+RP ) 
+SEMI ; 
+ID "quicksort"
+LP ( 
+ID "a"
+COMMA , 
+INTEGER_LITERAL 0
+COMMA , 
+ID "N"
+MINUS - 
+INTEGER_LITERAL 2
+RP ) 
+SEMI ; 
+ID "writearray"
+LP ( 
+RP ) 
+SEMI ; 
+********* file: tests/square.spl
+VAR 
+ID "SIZE"
+EQUAL 
+INTEGER_LITERAL 5
+SEMI ; 
+VAR 
+ID "I"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "J"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "K"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "CELL"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "B"
+EQUAL 
+ARRAY 
+LP ( 
+ID "SIZE"
+COMMA , 
+INTEGER_LITERAL 0
+RP ) 
+SEMI ; 
+VAR 
+ID "C"
+EQUAL 
+ARRAY 
+LP ( 
+ID "SIZE"
+COMMA , 
+ARRAY 
+LP ( 
+ID "SIZE"
+COMMA , 
+INTEGER_LITERAL 0
+RP ) 
+RP ) 
+SEMI ; 
+VAR 
+ID "D"
+EQUAL 
+ARRAY 
+LP ( 
+ID "SIZE"
+COMMA , 
+ARRAY 
+LP ( 
+ID "SIZE"
+COMMA , 
+INTEGER_LITERAL 0
+RP ) 
+RP ) 
+SEMI ; 
+ID "I"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "I"
+LT < 
+ID "SIZE"
+RP ) 
+LB { 
+ID "C"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+ID "I"
+RSB ] 
+EQUAL 
+ID "I"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+ID "I"
+EQUAL 
+ID "I"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+ID "I"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "I"
+LT < 
+ID "SIZE"
+RP ) 
+LB { 
+ID "J"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "J"
+LT < 
+ID "SIZE"
+RP ) 
+LB { 
+ID "CELL"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+ID "K"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "K"
+LT < 
+ID "SIZE"
+RP ) 
+LB { 
+ID "CELL"
+EQUAL 
+ID "CELL"
+PLUS + 
+ID "C"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+ID "K"
+RSB ] 
+TIMES * 
+ID "C"
+LSB [ 
+ID "K"
+RSB ] 
+LSB [ 
+ID "J"
+RSB ] 
+SEMI ; 
+ID "K"
+EQUAL 
+ID "K"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+ID "D"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+ID "J"
+RSB ] 
+EQUAL 
+ID "CELL"
+SEMI ; 
+ID "J"
+EQUAL 
+ID "J"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+ID "I"
+EQUAL 
+ID "I"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Input matrix"
+RP ) 
+SEMI ; 
+ID "I"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "I"
+LT < 
+ID "SIZE"
+RP ) 
+LB { 
+PRINT 
+LP ( 
+ID "C"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "C"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "C"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 2
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "C"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 3
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "C"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 4
+RSB ] 
+RP ) 
+SEMI ; 
+ID "I"
+EQUAL 
+ID "I"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+PRINT 
+LP ( 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Input matrix squared"
+RP ) 
+SEMI ; 
+ID "I"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "I"
+LT < 
+ID "SIZE"
+RP ) 
+LB { 
+PRINT 
+LP ( 
+ID "D"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 0
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "D"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 1
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "D"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 2
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "D"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 3
+RSB ] 
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "D"
+LSB [ 
+ID "I"
+RSB ] 
+LSB [ 
+INTEGER_LITERAL 4
+RSB ] 
+RP ) 
+SEMI ; 
+ID "I"
+EQUAL 
+ID "I"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+********* file: tests/test1.spl
+VAR 
+ID "x"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 6
+SEMI ; 
+VAR 
+ID "y"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 3
+SEMI ; 
+DEF 
+ID "f"
+LP ( 
+ID "a"
+COLON : 
+INT 
+RP ) 
+LB { 
+VAR 
+ID "i"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 2
+SEMI ; 
+PRINT 
+LP ( 
+ID "a"
+RP ) 
+SEMI ; 
+FOR 
+LP ( 
+ID "k"
+EQUAL 
+INTEGER_LITERAL 1
+TO 
+ID "a"
+RP ) 
+PRINT 
+LP ( 
+ID "k"
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "f"
+LP ( 
+ID "x"
+PLUS + 
+INTEGER_LITERAL 1
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+ID "x"
+PLUS + 
+ID "y"
+TIMES * 
+INTEGER_LITERAL 2
+RP ) 
+SEMI ; 
+********* file: tests/test2.spl
+VAR 
+ID "x"
+COLON : 
+INT 
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Input: "
+RP ) 
+SEMI ; 
+READ 
+LP ( 
+ID "x"
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+INTEGER_LITERAL 1
+PLUS + 
+ID "x"
+TIMES * 
+INTEGER_LITERAL 2
+RP ) 
+SEMI ; 
+********* file: tests/test3.spl
+TYPE 
+ID "IARRAY"
+EQUAL 
+ARRAY 
+LSB [ 
+INT 
+RSB ] 
+SEMI ; 
+VAR 
+ID "a"
+EQUAL 
+LSB [ 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 1
+COMMA , 
+INTEGER_LITERAL 2
+COMMA , 
+INTEGER_LITERAL 5
+COMMA , 
+INTEGER_LITERAL 6
+COMMA , 
+INTEGER_LITERAL 6
+COMMA , 
+INTEGER_LITERAL 6
+COMMA , 
+INTEGER_LITERAL 6
+COMMA , 
+INTEGER_LITERAL 100
+RSB ] 
+SEMI ; 
+VAR 
+ID "k"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+FOR 
+LP ( 
+ID "i"
+EQUAL 
+INTEGER_LITERAL 0
+TO 
+INTEGER_LITERAL 8
+RP ) 
+PRINT 
+LP ( 
+STRING_LITERAL "a["
+COMMA , 
+ID "i"
+COMMA , 
+STRING_LITERAL "] is "
+COMMA , 
+ID "a"
+LSB [ 
+ID "i"
+RSB ] 
+RP ) 
+SEMI ; 
+WHILE 
+LP ( 
+ID "k"
+LT < 
+INTEGER_LITERAL 12
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "k"
+LT < 
+INTEGER_LITERAL 9
+AND && 
+ID "a"
+LSB [ 
+ID "k"
+RSB ] 
+LT < 
+INTEGER_LITERAL 10
+RP ) 
+PRINT 
+LP ( 
+ID "k"
+COMMA , 
+STRING_LITERAL " "
+COMMA , 
+ID "a"
+LSB [ 
+ID "k"
+RSB ] 
+RP ) 
+SEMI ; 
+ID "k"
+EQUAL 
+ID "k"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+********* file: tests/test4.spl
+TYPE 
+ID "rec"
+EQUAL 
+LB { 
+ID "a"
+COLON : 
+INT 
+COMMA , 
+ID "b"
+COLON : 
+INT 
+RB } 
+SEMI ; 
+VAR 
+ID "x"
+EQUAL 
+LB { 
+ID "a"
+EQUAL 
+INTEGER_LITERAL 23
+COMMA , 
+ID "b"
+EQUAL 
+INTEGER_LITERAL 67
+RB } 
+SEMI ; 
+ID "x"
+DOT . 
+ID "a"
+EQUAL 
+INTEGER_LITERAL 89
+SEMI ; 
+PRINT 
+LP ( 
+ID "x"
+DOT . 
+ID "a"
+COMMA , 
+STRING_LITERAL "  "
+COMMA , 
+ID "x"
+DOT . 
+ID "b"
+RP ) 
+SEMI ; 
+********* file: tests/tree.spl
+TYPE 
+ID "tree"
+EQUAL 
+LB { 
+ID "left"
+COLON : 
+ID "tree"
+COMMA , 
+ID "info"
+COLON : 
+INT 
+COMMA , 
+ID "right"
+COLON : 
+ID "tree"
+RB } 
+SEMI ; 
+VAR 
+ID "x"
+COLON : 
+ID "tree"
+EQUAL 
+LB { 
+ID "left"
+EQUAL 
+LP ( 
+RP ) 
+COMMA , 
+ID "info"
+EQUAL 
+INTEGER_LITERAL 3
+COMMA , 
+ID "right"
+EQUAL 
+LP ( 
+RP ) 
+RB } 
+SEMI ; 
+DEF 
+ID "preorder"
+LP ( 
+ID "x"
+COLON : 
+ID "tree"
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "x"
+LT < 
+GT > 
+LP ( 
+RP ) 
+RP ) 
+LB { 
+PRINT 
+LP ( 
+ID "x"
+DOT . 
+ID "info"
+RP ) 
+SEMI ; 
+ID "preorder"
+LP ( 
+ID "x"
+DOT . 
+ID "left"
+RP ) 
+SEMI ; 
+ID "preorder"
+LP ( 
+ID "x"
+DOT . 
+ID "right"
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "sum"
+LP ( 
+ID "x"
+COLON : 
+ID "tree"
+RP ) 
+COLON : 
+INT 
+LB { 
+IF 
+LP ( 
+ID "x"
+EQ == 
+LP ( 
+RP ) 
+RP ) 
+RETURN 
+INTEGER_LITERAL 0
+ELSE 
+RETURN 
+ID "sum"
+LP ( 
+ID "x"
+DOT . 
+ID "left"
+RP ) 
+PLUS + 
+ID "x"
+DOT . 
+ID "info"
+PLUS + 
+ID "sum"
+LP ( 
+ID "x"
+DOT . 
+ID "right"
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "reflect"
+LP ( 
+ID "x"
+COLON : 
+ID "tree"
+RP ) 
+COLON : 
+ID "tree"
+LB { 
+IF 
+LP ( 
+ID "x"
+EQ == 
+LP ( 
+RP ) 
+RP ) 
+RETURN 
+LP ( 
+RP ) 
+ELSE 
+RETURN 
+LB { 
+ID "left"
+EQUAL 
+ID "reflect"
+LP ( 
+ID "x"
+DOT . 
+ID "right"
+RP ) 
+COMMA , 
+ID "info"
+EQUAL 
+ID "x"
+DOT . 
+ID "info"
+COMMA , 
+ID "right"
+EQUAL 
+ID "reflect"
+LP ( 
+ID "x"
+DOT . 
+ID "left"
+RP ) 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+ID "x"
+DOT . 
+ID "left"
+EQUAL 
+LB { 
+ID "left"
+EQUAL 
+LP ( 
+RP ) 
+COMMA , 
+ID "info"
+EQUAL 
+INTEGER_LITERAL 2
+COMMA , 
+ID "right"
+EQUAL 
+LP ( 
+RP ) 
+RB } 
+SEMI ; 
+ID "x"
+DOT . 
+ID "right"
+EQUAL 
+LB { 
+ID "left"
+EQUAL 
+LP ( 
+RP ) 
+COMMA , 
+ID "info"
+EQUAL 
+INTEGER_LITERAL 4
+COMMA , 
+ID "right"
+EQUAL 
+LP ( 
+RP ) 
+RB } 
+SEMI ; 
+ID "x"
+DOT . 
+ID "left"
+DOT . 
+ID "right"
+EQUAL 
+LB { 
+ID "left"
+EQUAL 
+ID "x"
+DOT . 
+ID "right"
+COMMA , 
+ID "info"
+EQUAL 
+INTEGER_LITERAL 5
+COMMA , 
+ID "right"
+EQUAL 
+LP ( 
+RP ) 
+RB } 
+SEMI ; 
+ID "preorder"
+LP ( 
+ID "x"
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "SUM: "
+COMMA , 
+ID "sum"
+LP ( 
+ID "x"
+RP ) 
+RP ) 
+SEMI ; 
+ID "preorder"
+LP ( 
+ID "reflect"
+LP ( 
+ID "x"
+RP ) 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "SUM: "
+COMMA , 
+ID "sum"
+LP ( 
+ID "x"
+RP ) 
+RP ) 
+SEMI ; 
+********* file: tests/tsort.spl
+VAR 
+ID "N"
+EQUAL 
+INTEGER_LITERAL 9
+SEMI ; 
+TYPE 
+ID "btree"
+EQUAL 
+LB { 
+ID "k"
+COLON : 
+INT 
+COMMA , 
+ID "l"
+COLON : 
+ID "btree"
+COMMA , 
+ID "r"
+COLON : 
+ID "btree"
+RB } 
+SEMI ; 
+DEF 
+ID "insert"
+LP ( 
+ID "t"
+COLON : 
+ID "btree"
+COMMA , 
+ID "i"
+COLON : 
+INT 
+RP ) 
+COLON : 
+ID "btree"
+LB { 
+IF 
+LP ( 
+ID "t"
+EQ == 
+LP ( 
+RP ) 
+RP ) 
+RETURN 
+LB { 
+ID "k"
+EQUAL 
+ID "i"
+COMMA , 
+ID "l"
+EQUAL 
+LP ( 
+RP ) 
+COMMA , 
+ID "r"
+EQUAL 
+LP ( 
+RP ) 
+RB } 
+ELSE 
+IF 
+LP ( 
+ID "t"
+DOT . 
+ID "k"
+LEQ <= 
+ID "i"
+RP ) 
+RETURN 
+LB { 
+ID "k"
+EQUAL 
+ID "t"
+DOT . 
+ID "k"
+COMMA , 
+ID "l"
+EQUAL 
+ID "t"
+DOT . 
+ID "l"
+COMMA , 
+ID "r"
+EQUAL 
+ID "insert"
+LP ( 
+ID "t"
+DOT . 
+ID "r"
+COMMA , 
+ID "i"
+RP ) 
+RB } 
+ELSE 
+RETURN 
+LB { 
+ID "k"
+EQUAL 
+ID "t"
+DOT . 
+ID "k"
+COMMA , 
+ID "l"
+EQUAL 
+ID "insert"
+LP ( 
+ID "t"
+DOT . 
+ID "l"
+COMMA , 
+ID "i"
+RP ) 
+COMMA , 
+ID "r"
+EQUAL 
+ID "t"
+DOT . 
+ID "r"
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "readtree"
+LP ( 
+RP ) 
+COLON : 
+ID "btree"
+LB { 
+VAR 
+ID "i"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+VAR 
+ID "t"
+COLON : 
+ID "btree"
+EQUAL 
+LP ( 
+RP ) 
+SEMI ; 
+VAR 
+ID "a"
+EQUAL 
+INTEGER_LITERAL 0
+SEMI ; 
+WHILE 
+LP ( 
+ID "i"
+LT < 
+ID "N"
+RP ) 
+LB { 
+READ 
+LP ( 
+ID "a"
+RP ) 
+SEMI ; 
+ID "t"
+EQUAL 
+ID "insert"
+LP ( 
+ID "t"
+COMMA , 
+ID "a"
+RP ) 
+SEMI ; 
+ID "i"
+EQUAL 
+ID "i"
+PLUS + 
+INTEGER_LITERAL 1
+SEMI ; 
+RB } 
+SEMI ; 
+RETURN 
+ID "t"
+SEMI ; 
+RB } 
+SEMI ; 
+DEF 
+ID "writetree"
+LP ( 
+ID "t"
+COLON : 
+ID "btree"
+RP ) 
+LB { 
+IF 
+LP ( 
+ID "t"
+EQ == 
+LP ( 
+RP ) 
+RP ) 
+RETURN 
+ELSE 
+LB { 
+ID "writetree"
+LP ( 
+ID "t"
+DOT . 
+ID "l"
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+ID "t"
+DOT . 
+ID "k"
+RP ) 
+SEMI ; 
+ID "writetree"
+LP ( 
+ID "t"
+DOT . 
+ID "r"
+RP ) 
+SEMI ; 
+RB } 
+SEMI ; 
+RB } 
+SEMI ; 
+VAR 
+ID "t"
+COLON : 
+ID "btree"
+EQUAL 
+LP ( 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Give "
+COMMA , 
+ID "N"
+COMMA , 
+STRING_LITERAL " numbers:"
+RP ) 
+SEMI ; 
+ID "t"
+EQUAL 
+ID "readtree"
+LP ( 
+RP ) 
+SEMI ; 
+PRINT 
+LP ( 
+STRING_LITERAL "Result:"
+RP ) 
+SEMI ; 
+ID "writetree"
+LP ( 
+ID "t"
+RP ) 
+SEMI ; 
